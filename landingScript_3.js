@@ -62,5 +62,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initializeFilledColumns();
-    setInterval(shiftColumns, 2000);
+    setInterval(shiftColumns, 500);
 });

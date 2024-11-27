@@ -59,20 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
             filledCount++;
         }
 
-        // Função para verificar e ajustar consecutivos marrons
         verifyConsecutiveBrowns();
     }
 
-    // Função para ajustar colunas marrons consecutivas
     function verifyConsecutiveBrowns() {
         let count = 0;
         structreLandingColumns.forEach((column, index) => {
-            if (column.style.backgroundColor === "rgb(80, 59, 59)") { // Verifica pelo valor RGB
+            if (column.style.backgroundColor === "rgb(80, 59, 59)") { 
                 count++;
                 if (count > 3) {
                     column.style.backgroundColor = "transparent";
                     column.style.opacity = 0;
-                    count = 1; // Reset do contador
+                    count = 1;
                 }
             } else {
                 count = 0;
@@ -80,9 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Randomização inicial
     randomizeColumns();
 
-    // Randomizar a cada 2 segundos
-    setInterval(randomizeColumns, 2000);
+    setInterval(randomizeColumns, 1000);
 });
