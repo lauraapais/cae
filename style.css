@@ -11,7 +11,20 @@
 
 body {
     background-color: var(--bg-color);
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
+
+
+h1 {
+    font-size: 80px;
+}
+
+p {
+    font-size: 20px;
+}
+
 
 /* Header */
 header {
@@ -55,7 +68,7 @@ header {
 }
 
 
-.imageBackgroundLanding img{
+.imageBackgroundLanding img {
     position: absolute;
     top: 0;
     left: 0;
@@ -64,3 +77,23 @@ header {
     height: 100%;
     object-fit: cover;
 }
+
+
+.titleLandingPage {
+    height: calc(100vw /(20 + 1)* 3);
+    position: absolute;
+    bottom: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: calc(100vw /(20 + 1)* 0);
+}
+
+.titleLandingPage p{
+padding-top:2vw;
+}
+
+.titleLandingPage h1{
+    padding-bottom:2vw;
+    }

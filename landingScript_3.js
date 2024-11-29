@@ -32,21 +32,21 @@ document.addEventListener('DOMContentLoaded', () => {
             column.classList.add('collapse'); // Colapsa todas inicialmente
         });
 
-        // Adiciona a classe expand a colunas aleatórias sem exceder o limite de 3 consecutivas
-        const isExpandable = (index) => {
-            if (index < 2) return true; // Os primeiros dois índices são sempre válidos
-            return !(
-                structreLandingColumns[index - 1].classList.contains('expand') &&
-                structreLandingColumns[index - 2].classList.contains('expand') &&
-                structreLandingColumns[index - 3].classList.contains('expand')
-            );
-        };
-
+        // Adiciona a classe expand a colunas aleatórias, garantindo não mais que 3 consecutivas
+        let consecutiveCount = 0;
         structreLandingColumns.forEach((column, index) => {
-            if (filledCount < maxFilled && Math.random() > 0.5 && isExpandable(index)) {
-                column.classList.remove('collapse');
-                column.classList.add('expand');
-                filledCount++;
+            if (filledCount < maxFilled && Math.random() > 0.5) {
+                const prevExpanded = index > 0 && structreLandingColumns[index - 1].classList.contains('expand');
+                const nextExpanded = index < totalColumns - 1 && structreLandingColumns[index + 1].classList.contains('expand');
+
+                if (prevExpanded) consecutiveCount++;
+                else consecutiveCount = 1;
+
+                if (consecutiveCount <= 3) {
+                    column.classList.remove('collapse');
+                    column.classList.add('expand');
+                    filledCount++;
+                }
             }
         });
 
@@ -56,14 +56,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 col => col.classList.contains('collapse')
             );
             const randomColumn = remainingColumns[Math.floor(Math.random() * remainingColumns.length)];
-            const randomIndex = Array.from(structreLandingColumns).indexOf(randomColumn);
-
-            if (isExpandable(randomIndex)) {
-                randomColumn.classList.remove('collapse');
-                randomColumn.classList.add('expand');
-                filledCount++;
-            }
+            randomColumn.classList.remove('collapse');
+            randomColumn.classList.add('expand');
+            filledCount++;
         }
+
+        // Manter a primeira e quinta colunas da segunda fila sem cor e segunda, terceira e quarta preenchidas
+        const secondRowColumns = structreLandingRows[1].children; // Obtém as colunas da segunda fila
+        secondRowColumns[0].classList.remove('expand');
+        secondRowColumns[0].classList.add('collapse');
+        secondRowColumns[1].classList.remove('collapse');
+        secondRowColumns[1].classList.add('expand');
+        secondRowColumns[2].classList.remove('collapse');
+        secondRowColumns[2].classList.add('expand');
+        secondRowColumns[3].classList.remove('collapse');
+        secondRowColumns[3].classList.add('expand');
+        secondRowColumns[4].classList.remove('expand');
+        secondRowColumns[4].classList.add('collapse');
     }
 
     // Controle de tempo entre transições
