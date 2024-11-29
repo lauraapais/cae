@@ -32,9 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
             column.classList.add('collapse'); // Colapsa todas inicialmente
         });
 
-        // Adiciona a classe expand a colunas aleatórias
-        structreLandingColumns.forEach(column => {
-            if (filledCount < maxFilled && Math.random() > 0.5) {
+        // Adiciona a classe expand a colunas aleatórias sem exceder o limite de 3 consecutivas
+        const isExpandable = (index) => {
+            if (index < 2) return true; // Os primeiros dois índices são sempre válidos
+            return !(
+                structreLandingColumns[index - 1].classList.contains('expand') &&
+                structreLandingColumns[index - 2].classList.contains('expand') &&
+                structreLandingColumns[index - 3].classList.contains('expand')
+            );
+        };
+
+        structreLandingColumns.forEach((column, index) => {
+            if (filledCount < maxFilled && Math.random() > 0.5 && isExpandable(index)) {
                 column.classList.remove('collapse');
                 column.classList.add('expand');
                 filledCount++;
@@ -47,9 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 col => col.classList.contains('collapse')
             );
             const randomColumn = remainingColumns[Math.floor(Math.random() * remainingColumns.length)];
-            randomColumn.classList.remove('collapse');
-            randomColumn.classList.add('expand');
-            filledCount++;
+            const randomIndex = Array.from(structreLandingColumns).indexOf(randomColumn);
+
+            if (isExpandable(randomIndex)) {
+                randomColumn.classList.remove('collapse');
+                randomColumn.classList.add('expand');
+                filledCount++;
+            }
         }
     }
 
