@@ -36,8 +36,6 @@ header {
 .structreLandingColumn {
     background-color: var(--brown);
     height: 100%;
-    /*transition: opacity 0.5s ease, width 0.2s ease;*/
-    opacity: 1;
 }
 
 

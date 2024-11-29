@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         structreLandingColumns.forEach(column => {
             column.style.backgroundColor = "transparent";
-            column.style.opacity = 0;
         });
 
         structreLandingColumns.forEach(column => {
@@ -39,12 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 consecutiveBrown < 3
             ) {
                 column.style.backgroundColor = "#E3D24D";
-                column.style.opacity = 1;
                 filledCount++;
                 consecutiveBrown++;
             } else {
                 column.style.backgroundColor = "transparent";
-                column.style.opacity = 0;
                 consecutiveBrown = 0;
             }
         });
@@ -55,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
             );
             const randomColumn = remainingColumns[Math.floor(Math.random() * remainingColumns.length)];
             randomColumn.style.backgroundColor = "#E3D24D";
-            randomColumn.style.opacity = 1;
             filledCount++;
         }
 
@@ -69,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 count++;
                 if (count > 3) {
                     column.style.backgroundColor = "transparent";
-                    column.style.opacity = 0;
                     count = 1;
                 }
             } else {
