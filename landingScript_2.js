@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Math.random() > 0.5 &&
                 consecutiveBrown < 3
             ) {
-                column.style.backgroundColor = "#503B3B";
+                column.style.backgroundColor = "#E3D24D";
                 column.style.opacity = 1;
                 filledCount++;
                 consecutiveBrown++;
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 col => col.style.backgroundColor === "transparent"
             );
             const randomColumn = remainingColumns[Math.floor(Math.random() * remainingColumns.length)];
-            randomColumn.style.backgroundColor = "#503B3B";
+            randomColumn.style.backgroundColor = "#E3D24D";
             randomColumn.style.opacity = 1;
             filledCount++;
         }

@@ -1,6 +1,6 @@
 :root {
     --bg-color: #F0F0F0;
-    --brown: #503B3B;
+    --brown: #E3D24D;
 }
 
 /* Geral */
@@ -30,6 +30,7 @@ header {
 
 .structreLanding {
     width: 100%;
+    position: relative;
 }
 
 .structreLandingColumn {
@@ -46,3 +47,22 @@ header {
 }
 
 
+.imageBackgroundLanding {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.imageBackgroundLanding img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
