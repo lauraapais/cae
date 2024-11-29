@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function scheduleTransitions() {
         randomizeColumns(); // Randomiza as colunas imediatamente
         setTimeout(() => {
-            setTimeout(scheduleTransitions, 2000); // Aguarda 2 segundos antes de iniciar o próximo ciclo
+            setTimeout(scheduleTransitions, 1000); // Aguarda 2 segundos antes de iniciar o próximo ciclo
         }, 1000); // Durações das animações ou tempo de espera
     }
 
