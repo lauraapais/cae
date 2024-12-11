@@ -279,6 +279,8 @@
                             </div>
                         </div>
                     </div>
+                    <div class="buttonMoreAgenda">
+                        <a href="programacao.html"><p>Programação Completa</p></div></a>
                 </div>
 
 
@@ -323,6 +325,16 @@
     <script src="js/script.js"></script>
     <script src="js/landingScript.js"></script>
     <script src="js/mobileHeight.js"></script>
+
+    <script>
+        const agendaItems = document.querySelectorAll('.agendaItem');
+    
+        agendaItems.forEach(item => {
+            item.addEventListener('click', () => {
+                window.location.href = 'evento-tipo.html';
+            });
+        });
+    </script>
 </body>
 
 </html>

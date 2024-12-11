@@ -5,12 +5,18 @@
     --colorColumnLanding: #E3D24D;
 
     --marginDesktop: 1vw;
+    --columnSizeDesktop: calc(100vw / 21);
 }
 
 /* Geral */
 * {
     padding: 0;
     margin: 0;
+}
+
+hr{
+    border: none;
+    border-top: 0.5px solid var(--black);
 }
 
 body {
@@ -44,6 +50,9 @@ p {
     text-wrap: pretty;
 }
 
+a{
+    text-decoration: none;
+}
 span {
     font-size: calc(70px + 0.5vw);
     line-height: calc(70px + 0.5vw);
@@ -57,7 +66,7 @@ header {
 .headerDiv {
     position: fixed;
     height: 100%;
-    width: calc(100vw / 21);
+    width:  var(--columnSizeDesktop);
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -83,7 +92,7 @@ header {
 }
 
 /* Menu */
-.menu span{
+.menu span {
     font-size: calc(40px + 0.390625vw);
     line-height: calc(40px + 0.390625vw);
 }
@@ -104,10 +113,10 @@ header {
     gap: calc(var(--marginDesktop) * 2);
     padding: var(--marginDesktop);
     background-color: var(--grey);
-    width: calc((100vw / 21) * 4);
+    width: calc((var(--marginDesktop)) * 4);
     height: calc(var(--vh, 1h) * 100 - var(--marginDesktop) * 2);
     z-index: 900;
-    left: calc(100vw / 21);
+    left: var(--columnSizeDesktop);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -201,7 +210,7 @@ header {
     top: 0;
     left: 0;
     z-index: -1;
-    width: calc(100vw - 100vw/21);
+    width: calc(100vw - var(--columnSizeDesktop));
     height: 100vh;
 }
 
@@ -221,10 +230,10 @@ header {
     transform: rotate(-90deg) translate(0%, 100%);
     position: absolute;
     transform-origin: bottom left;
-    left: calc((100vw / 21));
+    left: var(--columnSizeDesktop);
     bottom: 0;
     width: calc(50vh - var(--marginDesktop) * 2);
-    height: calc((100vw / 21) * 3 - var(--marginDesktop) * 2);
+    height: calc((var(--columnSizeDesktop)) * 3 - var(--marginDesktop) * 2);
     padding: var(--marginDesktop);
     background-color: var(--colorColumnLanding);
     display: flex;
@@ -291,7 +300,7 @@ header {
 }
 
 .agendaItemMain {
-    width: calc(100vw - (100vw / 21) - var(--marginDesktop)* 2) !important; 
+    width: calc(100vw - (var(--columnSizeDesktop)) - var(--marginDesktop)* 2) !important;
     padding: var(--marginDesktop);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -301,6 +310,7 @@ header {
 .agendaItem {
     width: 100%;
     margin-bottom: var(--marginDesktop);
+    cursor:pointer;
 }
 
 .agendaItem img {
@@ -315,6 +325,47 @@ header {
     flex-direction: column;
     gap: calc(var(--marginDesktop) / 2);
 }
+
+.buttonMoreAgenda {
+    background-color: var(--black);
+    display: flex;
+    justify-content: center;
+    padding: var(--marginDesktop);
+}
+
+.buttonMoreAgenda a {
+    color: var(--bg-color);
+}
+
+.buttonMoreAgenda a:hover {
+    text-decoration: underline;
+}
+
+/* Evento-Tipo */
+.bodyEventType{
+background-color: var(--grey);
+}
+
+.eventContent{
+    width: calc(100vw - var(--columnSizeDesktop));
+    min-height: 100vh;
+}
+
+.eventImage{
+    width: 50%;
+    height: 100vh;
+}
+
+.eventImage img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.eventInfo{
+    width: 50%;
+}
+
 
 /*Footer*/
 footer span {
@@ -353,7 +404,7 @@ footer input[type="text"]::placeholder {
 }
 
 .footerElement {
-    width: calc(100vw / 21)* 2;
+    width: calc(var(--columnSizeDesktop))* 2;
     display: flex;
     gap: calc(var(--marginDesktop)*4);
 }
