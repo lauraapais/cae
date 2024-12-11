@@ -22,11 +22,19 @@ body {
 
 
 h1 {
-    font-size: calc(70px + 0.5vw);
+    font-size: calc(60px + 0.5vw);
+    line-height: calc(70px + 0.5vw);
     font-family: "neue-haas-grotesk-display", sans-serif;
     font-weight: 400;
     font-style: normal;
-    line-height: calc(70px + 0.5vw);
+}
+
+h2 {
+    font-size: calc(35px + 0.5vw);
+    line-height: calc(35px + 0.5vw);
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 p {
@@ -37,7 +45,8 @@ p {
 }
 
 span {
-    font-size: calc(30px + 0.5vw);
+    font-size: calc(70px + 0.5vw);
+    line-height: calc(70px + 0.5vw);
 }
 
 /* Header */
@@ -46,7 +55,9 @@ header {
 }
 
 .headerDiv {
+    position: fixed;
     height: 100%;
+    width: calc(100vw / 21);
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -72,6 +83,11 @@ header {
 }
 
 /* Menu */
+.menu span{
+    font-size: calc(40px + 0.390625vw);
+    line-height: calc(40px + 0.390625vw);
+}
+
 .menuButton {
     transform-origin: 50% 50%;
     transform: rotate(-90deg) translate(-25%);
@@ -84,6 +100,7 @@ header {
 }
 
 #menu {
+    position: fixed;
     gap: calc(var(--marginDesktop) * 2);
     padding: var(--marginDesktop);
     background-color: var(--grey);
@@ -91,7 +108,6 @@ header {
     height: calc(var(--vh, 1h) * 100 - var(--marginDesktop) * 2);
     z-index: 900;
     left: calc(100vw / 21);
-    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -107,7 +123,6 @@ header {
 #menu span {
     cursor: pointer;
     position: relative;
-    /* Necessário para o pseudo-elemento */
 }
 
 #menu span::after {
@@ -116,14 +131,11 @@ header {
     left: 0;
     bottom: 0;
     height: 2.5px;
-    /* Espessura do underline */
     width: 100%;
     background-color: black;
     opacity: 0;
     transform: scaleX(0);
-    /* Inicialmente escondido */
     transform-origin: center;
-    /* O ponto de escala é o centro */
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -131,7 +143,6 @@ header {
 #menu .menuSelected::after {
     opacity: 1;
     transform: scaleX(1);
-    /* Expande do centro */
 }
 
 #menu a {
@@ -212,13 +223,14 @@ header {
     transform-origin: bottom left;
     left: calc((100vw / 21));
     bottom: 0;
-    width: calc(50vh - var(--marginDesktop) * 2) ;
+    width: calc(50vh - var(--marginDesktop) * 2);
     height: calc((100vw / 21) * 3 - var(--marginDesktop) * 2);
     padding: var(--marginDesktop);
     background-color: var(--colorColumnLanding);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: var(--marginDesktop);
 }
 
 /*
@@ -266,6 +278,44 @@ header {
 }
 
 
+/* Index Agenda */
+.monthSep {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--marginDesktop);
+}
+
+.mainTitle {
+    padding: var(--marginDesktop);
+    margin-top: calc(var(--marginDesktop)*3);
+}
+
+.agendaItemMain {
+    width: calc(100vw - (100vw / 21) - var(--marginDesktop)* 2) !important; 
+    padding: var(--marginDesktop);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: calc(var(--marginDesktop));
+}
+
+.agendaItem {
+    width: 100%;
+    margin-bottom: var(--marginDesktop);
+}
+
+.agendaItem img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+}
+
+.agendaItemDetails {
+    margin-top: var(--marginDesktop);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--marginDesktop) / 2);
+}
+
 /*Footer*/
 footer span {
     font-size: calc(50px + 0.5vw);
@@ -297,7 +347,6 @@ footer input[type="text"]::placeholder {
 
 .footerMain {
     display: flex;
-    width: calc(100vw - var(--marginDesktop) * 2);
     flex-direction: row;
     justify-content: space-between;
     padding: var(--marginDesktop);
