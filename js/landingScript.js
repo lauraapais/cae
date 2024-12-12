@@ -5,8 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const structreLandingRows = document.querySelectorAll('.structreLandingRow');
     const columnNumber = 20;
     const structreLandingColumns = [];
+    const colorMapping = ["#E3D24D", "#38ABBA", "#664728"]; // Colors for each image
 
-    // Criação das colunas dinâmicas
+    // Create dynamic columns
     structreLandingRows.forEach(row => {
         for (let j = 0; j < columnNumber; j++) {
             const columnDiv = document.createElement('div');
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let autoSlideInterval;
 
     const showImage = (index) => {
-        // Atualiza as imagens
+        // Update images
         images.forEach((img, i) => {
             img.classList.remove("active");
             if (i === index) {
@@ -33,19 +34,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Atualiza os SVGs
+        // Update SVGs
         svgs.forEach(svg => svg.classList.remove("selected"));
         svgs[index].classList.add("selected");
 
-        /*// Atualiza os títulos
-        titles.forEach((title, i) => {
-            title.classList.remove("active");
-            if (i === index) {
-                title.classList.add("active");
-            }
-        });*/
+        // Update column background colors
+        const backgroundColor = colorMapping[index % colorMapping.length];
+        structreLandingColumns.forEach(column => {
+            column.style.backgroundColor = backgroundColor;
+        });
 
-        // Randomiza a landing
+        // Randomize columns
         randomizeColumns();
     };
 
@@ -57,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         structreLandingColumns.forEach(column => {
             column.classList.remove('expand', 'collapse');
-            column.classList.add('collapse'); // Colapsa todas inicialmente
+            column.classList.add('collapse');
         });
 
         let consecutiveCount = 0;

@@ -19,6 +19,14 @@
     margin: 0;
 }
 
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
 ::-moz-selection {
     /* Code for Firefox */
     color: var(--bg-color);
@@ -146,6 +154,8 @@ header {
 }
 
 #menu {
+   opacity: 0;
+   visibility: 0;
     position: fixed;
     gap: calc(var(--marginDesktop) * 2);
     padding: var(--marginDesktop);
@@ -158,13 +168,15 @@ header {
     flex-direction: column;
     justify-content: center;
     top: 0;
-
-    opacity: 0;
-    visibility: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
-
     border-right: 1px solid var(--black);
 }
+
+#menu.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 #menu span {
     cursor: pointer;
@@ -194,13 +206,6 @@ header {
 #menu a {
     color: var(--black);
     text-decoration: none;
-}
-
-
-
-#menu.show {
-    opacity: 1;
-    visibility: visible;
 }
 
 .menuButton svg {
@@ -277,9 +282,6 @@ body{
     transform-origin: bottom left;
     left: var(--columnSizeDesktop);
     bottom: 0;
-    
-    
-    background-color: var(--colorColumnLanding);
     
 }
 
