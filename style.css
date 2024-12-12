@@ -249,6 +249,7 @@ body{
     z-index: -1;
     width: calc(100vw - var(--columnSizeDesktop));
     height: 100vh;
+    overflow: hidden;
 }
 
 .imageBackgroundLanding img {
@@ -259,7 +260,18 @@ body{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none; /* Impede interação com imagens invisíveis */
 }
+
+.imageBackgroundLanding img.active {
+    opacity: 1;
+    pointer-events: auto; /* Permite interação com a imagem visível */
+}
+
+
+
 
 
 .titleLanding {
@@ -269,14 +281,35 @@ body{
     transform-origin: bottom left;
     left: var(--columnSizeDesktop);
     bottom: 0;
-    width: calc(50vh - var(--marginDesktop) * 2);
-    height: calc((var(--columnSizeDesktop)) * 3 - var(--marginDesktop) * 2);
-    padding: var(--marginDesktop);
+    
+    
     background-color: var(--colorColumnLanding);
+    
+}
+
+.titleLandingContainer {
+    display: none; /* Esconde todos os títulos por padrão */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+}
+
+.titleLandingContainer.active {
+    display: block; /* Exibe o título ativo */
+    opacity: 1;
+}
+
+
+.titleLandingContainer{
+    padding: var(--marginDesktop);
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: var(--marginDesktop);
+    width: calc(50vh - var(--marginDesktop) * 2);
+    height: calc((var(--columnSizeDesktop)) * 3 - var(--marginDesktop) * 2);
 }
 
 /*
