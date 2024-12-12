@@ -3,24 +3,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const svgs = document.querySelectorAll(".imageLandingNext .numberPhotos");
     const titles = document.querySelectorAll(".titleLandingContainer");
     const structreLandingRows = document.querySelectorAll('.structreLandingRow');
-    const columnNumber = 20;
-    const structreLandingColumns = [];
     const colorMapping = ["#E3D24D", "#38ABBA", "#664728"]; // Colors for each image
 
-    // Create dynamic columns
-    structreLandingRows.forEach(row => {
-        for (let j = 0; j < columnNumber; j++) {
-            const columnDiv = document.createElement('div');
-            columnDiv.className = 'structreLandingColumn collapse';
-            row.appendChild(columnDiv);
-            structreLandingColumns.push(columnDiv);
-        }
-    });
+    let columnNumber = window.innerWidth <= 768 ? 7 : 20; // Adjust columns for mobile
+    const structreLandingColumns = [];
 
-    const columnWidth = 100 / (columnNumber + 1);
-    structreLandingColumns.forEach(column => {
-        column.style.width = `${columnWidth}vw`;
-    });
+    const createColumns = () => {
+        // Clear existing columns
+        structreLandingRows.forEach(row => row.innerHTML = "");
+        structreLandingColumns.length = 0;
+
+        // Create dynamic columns
+        structreLandingRows.forEach(row => {
+            for (let j = 0; j < columnNumber; j++) {
+                const columnDiv = document.createElement('div');
+                columnDiv.className = 'structreLandingColumn collapse';
+                row.appendChild(columnDiv);
+                structreLandingColumns.push(columnDiv);
+            }
+        });
+
+        const columnWidth = 100 / (columnNumber + 1);
+        structreLandingColumns.forEach(column => {
+            column.style.width = `${columnWidth}vw`;
+        });
+    };
 
     let currentIndex = 0;
     let autoSlideInterval;
@@ -84,17 +91,14 @@ document.addEventListener("DOMContentLoaded", function () {
             filledCount++;
         }
 
-        const secondRowColumns = structreLandingRows[1].children;
-        secondRowColumns[0].classList.remove('expand');
-        secondRowColumns[0].classList.add('collapse');
-        secondRowColumns[1].classList.remove('collapse');
-        secondRowColumns[1].classList.add('expand');
-        secondRowColumns[2].classList.remove('collapse');
-        secondRowColumns[2].classList.add('expand');
-        secondRowColumns[3].classList.remove('collapse');
-        secondRowColumns[3].classList.add('expand');
-        secondRowColumns[4].classList.remove('expand');
-        secondRowColumns[4].classList.add('collapse');
+        const secondRowColumns = structreLandingRows[1]?.children;
+        if (secondRowColumns) {
+            secondRowColumns[0]?.classList.replace('expand', 'collapse');
+            secondRowColumns[1]?.classList.replace('collapse', 'expand');
+            secondRowColumns[2]?.classList.replace('collapse', 'expand');
+            secondRowColumns[3]?.classList.replace('collapse', 'expand');
+            secondRowColumns[4]?.classList.replace('expand', 'collapse');
+        }
     };
 
     const startAutoSlide = () => {
@@ -117,6 +121,17 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        const newColumnNumber = window.innerWidth <= 768 ? 7 : 20;
+        if (newColumnNumber !== columnNumber) {
+            columnNumber = newColumnNumber;
+            createColumns();
+            showImage(currentIndex);
+        }
+    });
+
+    createColumns();
     showImage(currentIndex);
     startAutoSlide();
 });
