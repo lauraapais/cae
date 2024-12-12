@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="">
+    <div class="bodyLanding">
         <header>
             <div class="headerDiv">
                 <div class="simpleLogoHeader">
@@ -51,7 +51,9 @@
 
                 </div>
                 <div class="logoHeader">
-                    <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.84 415.24" onclick="window.location.href='index.html'">
+                    <a href="index.html"></a>
+                    <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.84 415.24"
+                        onclick="window.location.href='index.html'">
                         <g id="Layer_1-2" data-name="Layer_1">
                             <g id="Group_173">
                                 <g id="cae" class="cls-1">
@@ -151,49 +153,79 @@
             </div>
         </header>
 
-         <div id="menu" class="menu">
-           <a href="programacao.html"><span>programação</span></a>
-           <a href="bilheteira.html"><span>bilheteira</span></a>
-           <a href="cae.html"><span>cae</span></a>
+        <div id="menu" class="menu">
+            <a href="programacao.html"><span class="menuSelected">programação</span></a>
+            <a href="bilheteira.html"><span>bilheteira</span></a>
+            <a href="cae.html"><span>cae</span></a>
         </div>
         <main>
-           
-        </main>
-    </div>
-    <footer>
-        <hr>
-        <div class="newsletterFooter">
-            <span id="subscribeSpan">Subscrever Newsletter</span>
-          </div>
-          
+      
 
-        <div class="footerMain">
-            <div class="footerElement">
-                <div>
-                    <p>Av. Camilo Tavares Matos 205,</p>
-                    <p>3730-240 Vale de Cambra</p>
+
+
+            <footer>
+                <hr>
+                <div class="newsletterFooter">
+                    <h1 id="subscribeSpan">subscrever newsletter</h1>
+                    <div id="newsletterForm" class=" newsletterForm">
+                        <input id="newsletterForm-email" type="text" name="fname" placeholder="e-mail">
+                        <svg id="newsletterForm-arrow" xmlns="http://www.w3.org/2000/svg" width="65.102" height="65.102"
+                            viewBox="0 0 65.102 65.102">
+                            <g id="Icon_feather-arrow-right" data-name="Icon feather-arrow-right"
+                                transform="translate(-7.5 -7.146)">
+                                <path id="Path_3" data-name="Path 3" d="M7.5,18H71.895" transform="translate(0 21.697)"
+                                    fill="none" stroke="#000" stroke-linejoin="round" stroke-width="1" />
+                                <path id="Path_4" data-name="Path 4" d="M18,7.5,50.2,39.7,18,71.895"
+                                    transform="translate(21.697 0)" fill="none" stroke="#000" stroke-width="1" />
+                            </g>
+                        </svg>
+
+                    </div>
                 </div>
-                <div>
-                    <p>bilheteira@caecv.pt</p>
-                    <p>+351 200 000 000</p>
+
+                <div class="footerMain">
+                    <div class="footerElement">
+                        <div>
+                            <p>Av. Camilo Tavares Matos 205,</p>
+                            <p>3730-240 Vale de Cambra</p>
+                        </div>
+                        <div>
+                            <p>bilheteira@caecv.pt</p>
+                            <p>+351 200 000 000</p>
+                        </div>
+                        <div>
+                            <p>@caevc</p>
+                        </div>
+                    </div>
+                    <div class="footerElement">
+                        <p>© 2024 cae</p>
+                        <a href="politica-privacidade.html">
+                        <p>política de privacidade</p>
+                    </a>
+                    </div>
+                    <div class="footerElement">
+                        <p>Designed at <a href="https://unitedby.pt/" target="_blank">united by</a></p>
+                    </div>
                 </div>
-                <div>
-                    <p>@caevc</p>
-                </div>
-            </div>
-            <div class="footerElement">
-                <p>© 2024 cae</p>
-                <p>política de privacidade</p>
-            </div>
-            <div class="footerElement">
-                <p>Designed at united by</p>
-            </div>
-        </div>
-    </footer>
+            </footer>
+
+    </main>
+    </div>
 
     <script src="js/script.js"></script>
     <script src="js/landingScript.js"></script>
     <script src="js/mobileHeight.js"></script>
+
+    <script>
+        const agendaItems = document.querySelectorAll('.agendaItem');
+
+        agendaItems.forEach(item => {
+            item.addEventListener('click', () => {
+                window.location.href = 'evento-tipo.html';
+            });
+        });
+    </script>
+
 </body>
 
 </html>

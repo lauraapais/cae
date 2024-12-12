@@ -49,8 +49,8 @@ body {
 
 
 h1 {
-    font-size: calc(40px + 0.5vw);
-    line-height: calc(45px + 0.5vw);
+    font-size: calc(45px + 0.5vw);
+    line-height: calc(48px + 0.5vw);
     font-family: "neue-haas-grotesk-text", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -72,6 +72,15 @@ p {
 }
 
 a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+#menu a:hover{
     text-decoration: none;
 }
 
@@ -386,10 +395,6 @@ header {
     cursor: pointer;
 }
 
-.moreinfoEvent {
-    text-decoration: underline;
-}
-
 
 
 
@@ -514,8 +519,10 @@ footer input[type="text"]::placeholder {
 }
 
 .newsletterFooter {
+    width: calc(100vw - var(--marginDesktop)* 2 - var(--headerSizeDesktop));
     padding: var(--marginDesktop);
 }
+
 
 .footerMain {
     display: flex;
@@ -530,6 +537,35 @@ footer input[type="text"]::placeholder {
     gap: calc(var(--marginDesktop)*4);
 }
 
+.newsletterForm{
+    display: flex;
+    justify-content: space-between;
+}
+
+#newsletterForm{
+    opacity: 0;
+}
+
+#subscribeSpan{
+    cursor:pointer;
+}
+
+footer input[type="text"] {
+    font-size: calc(50px + 0.5vw);
+    font-family: "neue-haas-grotesk-text", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    border-bottom: 2px solid var(--black);
+}
+
+
+#newsletterForm-arrow{
+    cursor: pointer;
+}
 
 
 /* Programacao */
@@ -553,6 +589,14 @@ footer input[type="text"]::placeholder {
 @media only screen and (max-width: 700px) {
 
     /* Geral */
+    a{
+        text-decoration: underline;
+    }
+
+    #menu a{
+        text-decoration: none;
+    }
+
     h1 {
         font-size: calc(40px + 0.5vw);
         line-height: calc(45px + 0.5vw);
@@ -627,6 +671,7 @@ footer input[type="text"]::placeholder {
     }
 
     .newsletterFooter {
+        width: calc(100vw - var(--marginMobile)* 2 - var(--headerSizeMobile));
         padding: var(--marginMobile);
         margin-top: calc(var(--marginMobile) * 2);
     }
@@ -639,6 +684,11 @@ footer input[type="text"]::placeholder {
         font-weight: 400;
         font-style: normal;
     }
+
+    .newsletterForm svg{
+        width: 7vw;
+    }
+    
 
     /*Index*/
     .buttonMoreAgenda {
