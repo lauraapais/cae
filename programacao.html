@@ -164,6 +164,24 @@
                     <h1>Programação</h1>
                 </div>
 
+                <div class="filter">
+                    <div>
+                        <p>esta semana</p>
+                        <p>este mês</p>
+                    </div>
+
+                    <div>
+                        <p>tudo</p>
+                        <p>cinema</p>
+                        <p>teatro</p>
+                        <p>música</p>
+                    </div>
+
+                    <div>
+                        <p>pesquisa</p>
+                    </div>
+                </div>
+
                 <div class="month">
                     <hr>
                     <div class="monthSep">
@@ -180,7 +198,7 @@
                                 <p class="moreinfoEvent">mais informação</p>
                             </div>
                         </div>
-                    <!--2-->
+                        <!--2-->
                         <div class="agendaItem">
                             <img src="data/landingPage/07POOR-THINGS-REVIEW-mhqv-videoSixteenByNineJumbo1600.jpg">
                             <div class="agendaItemDetails">
@@ -189,11 +207,11 @@
                                 <p class="moreinfoEvent">mais informação</p>
                             </div>
                         </div>
-                    <!--3-->
+                        <!--3-->
                         <div class="agendaItem">
-                           
+
                         </div>
-                    <!--4-->
+                        <!--4-->
                         <div class="agendaItem">
                             <img src="data/landingPage/CARMINHO_4_c-Mariana-Maltoni.jpg">
                             <div class="agendaItemDetails">
@@ -254,7 +272,7 @@
                                 <p class="moreinfoEvent">mais informação</p>
                             </div>
                         </div>
-                    <!--2-->
+                        <!--2-->
                         <div class="agendaItem">
                             <img src="data/landingPage/07POOR-THINGS-REVIEW-mhqv-videoSixteenByNineJumbo1600.jpg">
                             <div class="agendaItemDetails">
@@ -263,11 +281,11 @@
                                 <p class="moreinfoEvent">mais informação</p>
                             </div>
                         </div>
-                    <!--3-->
+                        <!--3-->
                         <div class="agendaItem">
-                           
+
                         </div>
-                    <!--4-->
+                        <!--4-->
                         <div class="agendaItem">
                             <img src="data/landingPage/CARMINHO_4_c-Mariana-Maltoni.jpg">
                             <div class="agendaItemDetails">
@@ -311,39 +329,49 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="buttonMoreAgenda">
+                        <a>
+                            <p>Arquivo</p>
+                    </div></a>
                 </div>
-                <footer>
-                    <hr>
-                    <div class="newsletterFooter">
-                        <span id="subscribeSpan">Subscrever Newsletter</span>
-                    </div>
+            </div>
 
 
-                    <div class="footerMain">
-                        <div class="footerElement">
-                            <div>
-                                <p>Av. Camilo Tavares Matos 205,</p>
-                                <p>3730-240 Vale de Cambra</p>
-                            </div>
-                            <div>
-                                <p>bilheteira@caecv.pt</p>
-                                <p>+351 200 000 000</p>
-                            </div>
-                            <div>
-                                <p>@caevc</p>
-                            </div>
-                        </div>
-                        <div class="footerElement">
-                            <p>© 2024 cae</p>
-                            <p>política de privacidade</p>
-                        </div>
-                        <div class="footerElement">
-                            <p>Designed at united by</p>
-                        </div>
-                    </div>
-                </footer>
 
-        </main>
+
+    <footer>
+        <hr>
+        <div class="newsletterFooter">
+            <span id="subscribeSpan">Subscrever Newsletter</span>
+        </div>
+
+
+        <div class="footerMain">
+            <div class="footerElement">
+                <div>
+                    <p>Av. Camilo Tavares Matos 205,</p>
+                    <p>3730-240 Vale de Cambra</p>
+                </div>
+                <div>
+                    <p>bilheteira@caecv.pt</p>
+                    <p>+351 200 000 000</p>
+                </div>
+                <div>
+                    <p>@caevc</p>
+                </div>
+            </div>
+            <div class="footerElement">
+                <p>© 2024 cae</p>
+                <p>política de privacidade</p>
+            </div>
+            <div class="footerElement">
+                <p>Designed at united by</p>
+            </div>
+        </div>
+    </footer>
+
+    </main>
     </div>
 
     <script src="js/script.js"></script>
@@ -352,14 +380,14 @@
 
     <script>
         const agendaItems = document.querySelectorAll('.agendaItem');
-    
+
         agendaItems.forEach(item => {
             item.addEventListener('click', () => {
                 window.location.href = 'evento-tipo.html';
             });
         });
     </script>
-    
+
 </body>
 
 </html>

@@ -5,7 +5,12 @@
     --colorColumnLanding: #E3D24D;
 
     --marginDesktop: 1vw;
+    --marginMobile: 3vw;
     --columnSizeDesktop: calc(100vw / 21);
+    --headerSizeDesktop: calc(100vw / 21);
+
+    --columnSizeMobile: calc(100vw / 8);
+    --headerSizeMobile: calc(100vw / 8);
 }
 
 /* Geral */
@@ -14,49 +19,72 @@
     margin: 0;
 }
 
-hr{
+::-moz-selection {
+    /* Code for Firefox */
+    color: var(--bg-color);
+    background: var(--black);
+}
+
+::selection {
+    color: var(--bg-color);
+    background: var(--black);
+}
+
+
+hr {
     border: none;
     border-top: 0.5px solid var(--black);
 }
 
+a {
+    cursor: pointer;
+}
+
 body {
     background-color: var(--bg-color);
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-family: "neue-haas-grotesk-text", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 
 h1 {
-    font-size: calc(60px + 0.5vw);
-    line-height: calc(70px + 0.5vw);
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-size: calc(40px + 0.5vw);
+    line-height: calc(45px + 0.5vw);
+    font-family: "neue-haas-grotesk-text", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 h2 {
-    font-size: calc(35px + 0.5vw);
-    line-height: calc(35px + 0.5vw);
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-size: calc(30px + 0.5vw);
+    line-height: calc(32px + 0.5vw);
+    font-family: "neue-haas-grotesk-text", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 p {
     font-size: calc(11px + 0.390625vw);
-    line-height: calc(14px + 0.390625vw);
+    line-height: calc(15px + 0.390625vw);
     font-weight: 400;
     text-wrap: pretty;
 }
 
-a{
+a {
     text-decoration: none;
 }
+
 span {
     font-size: calc(70px + 0.5vw);
     line-height: calc(70px + 0.5vw);
 }
+
+main {
+    position: absolute;
+    left: var(--headerSizeDesktop);
+}
+
 
 /* Header */
 header {
@@ -64,9 +92,9 @@ header {
 }
 
 .headerDiv {
+    width: var(--headerSizeDesktop);
     position: fixed;
     height: 100%;
-    width:  var(--columnSizeDesktop);
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -113,10 +141,10 @@ header {
     gap: calc(var(--marginDesktop) * 2);
     padding: var(--marginDesktop);
     background-color: var(--grey);
-    width: calc((var(--marginDesktop)) * 4);
+    width: calc((var(--columnSizeDesktop)) * 4);
     height: calc(var(--vh, 1h) * 100 - var(--marginDesktop) * 2);
     z-index: 900;
-    left: var(--columnSizeDesktop);
+    left: calc(var(--headerSizeDesktop));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -310,7 +338,7 @@ header {
 .agendaItem {
     width: 100%;
     margin-bottom: var(--marginDesktop);
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .agendaItem img {
@@ -341,43 +369,136 @@ header {
     text-decoration: underline;
 }
 
-/* Evento-Tipo */
-.bodyEventType{
-background-color: var(--grey);
+.filter {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--marginDesktop);
 }
 
-.eventContent{
+
+.filter div {
+    display: flex;
+    gap: var(--marginDesktop);
+}
+
+.filter p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.moreinfoEvent {
+    text-decoration: underline;
+}
+
+
+
+
+/* Evento-Tipo */
+
+.bodyEventType main {
+    background-color: var(--grey);
+}
+
+.eventContent {
     width: calc(100vw - var(--columnSizeDesktop));
     min-height: 100vh;
+    display: flex;
 }
 
-.eventImage{
+.eventImage {
     width: 50%;
     height: 100vh;
 }
 
-.eventImage img{
+.eventImage img {
     width: 100%;
     object-fit: cover;
     height: 100%;
 }
 
-.eventInfo{
+.eventInfo {
     width: 50%;
+    padding: var(--marginDesktop);
+}
+
+.dayEvent {
+    margin-top: calc(var(--marginDesktop) * 5);
+}
+
+.dayEvent p {
+    font-weight: 600;
+}
+
+.detailsEventMain {
+    margin-top: calc(var(--marginDesktop) * 5);
+    display: flex;
+    gap: var(--marginDesktop);
+}
+
+.detailsEvent {
+    width: 60%;
+}
+
+.textEvent {
+    width: 50%;
+}
+
+.textEvent p {
+    margin-bottom: calc(var(--marginDesktop) / 2);
+    text-wrap: pretty;
+}
+
+.eventImage {
+    position: relative;
+}
+
+.imageCarousel {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.imageCarousel img {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.imageCarousel img:first-of-type {
+    opacity: 1;
+}
+
+
+.arrowsImage {
+    position: absolute;
+    z-index: 2;
+    width: calc(100% - var(--marginDesktop)* 2);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: var(--marginDesktop);
+    justify-content: space-between;
+}
+
+.arrowsImage svg {
+    width: 2.5vw;
 }
 
 
 /*Footer*/
 footer span {
     font-size: calc(50px + 0.5vw);
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-family: "neue-haas-grotesk-text", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 footer input[type="text"] {
     font-size: calc(50px + 0.5vw);
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-family: "neue-haas-grotesk-text", sans-serif;
     font-weight: 400;
     font-style: normal;
     border: none;
@@ -414,4 +535,208 @@ footer input[type="text"]::placeholder {
 /* Programacao */
 .bodyProgramacao {
     background-color: var(--grey);
+}
+
+
+@media only screen and (max-width: 1450px) {
+    .agendaItemMain {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .agendaItemMain {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 700px) {
+
+    /* Geral */
+    h1 {
+        font-size: calc(40px + 0.5vw);
+        line-height: calc(45px + 0.5vw);
+        font-family: "neue-haas-grotesk-text", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    h2 {
+        font-size: calc(30px + 0.5vw);
+        line-height: calc(30px + 0.5vw);
+        font-family: "neue-haas-grotesk-text", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    p {
+        font-size: calc(15px + 0.390625vw);
+        line-height: calc(20px + 0.390625vw);
+        font-weight: 400;
+        text-wrap: pretty;
+    }
+
+
+    main {
+        left: var(--headerSizeMobile);
+    }
+
+    .headerDiv {
+        width: var(--headerSizeMobile);
+    }
+
+    .logoHeader {
+        padding-bottom: var(--marginMobile);
+    }
+
+    .logoHeader svg {
+        width: 60%;
+    }
+
+    #menu {
+        gap: calc(var(--marginMobile)* 2);
+        padding: var(--marginMobile);
+        background-color: var(--grey);
+        width: calc(100vw - var(--headerSizeMobile));
+        height: calc(var(--vh, 1h)* 100 - var(--marginMobile)* 2);
+        z-index: 900;
+        left: calc(var(--headerSizeMobile));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        top: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+        border-right: 1px solid var(--black);
+    }
+
+    #closeMenu {
+        width: 4vw;
+        display: none;
+    }
+
+
+    .footerMain {
+        flex-direction: column;
+        padding: var(--marginMobile);
+    }
+
+    .footerElement {
+        flex-direction: column;
+    }
+
+    .newsletterFooter {
+        padding: var(--marginMobile);
+        margin-top: calc(var(--marginMobile) * 2);
+    }
+
+    footer span {
+        font-size: calc(40px + 0.5vw);
+        line-height: calc(40px + 0.5vw);
+
+        font-family: "neue-haas-grotesk-text", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    /*Index*/
+    .buttonMoreAgenda {
+        padding: calc(var(--marginMobile) * 1.5);
+        margin-top: var(--marginMobile);
+    }
+
+    .buttonMoreAgenda p {
+        text-decoration: underline;
+    }
+
+    .agendaItemMain {
+        width: calc(100vw - (var(--columnSizeMobile)) - var(--marginMobile)* 2) !important;
+        padding: var(--marginMobile);
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: calc(var(--marginMobile));
+    }
+
+    .agendaItemDetails {
+        margin-top: calc(var(--marginMobile));
+        gap: calc(var(--marginMobile) / 2);
+    }
+
+    .moreinfoEvent {
+        padding: calc(var(--marginMobile) / 2) 0;
+    }
+
+
+    /*Agenda*/
+    .monthSep {
+        padding: var(--marginMobile);
+    }
+
+    .filter {
+        padding: var(--marginMobile);
+        flex-direction: column;
+    }
+
+    .filter div {
+        gap: var(--marginMobile);
+        margin-bottom: calc(var(--marginMobile) / 2);
+    }
+
+    .mainTitle {
+        padding: var(--marginMobile);
+        margin-top: calc(var(--marginMobile));
+    }
+
+    .agendaItem img {
+        height: 45vh;
+    }
+
+    /* Evento-Tipo */
+    .eventContent {
+        width: calc(100vw - var(--columnSizeMobile));
+        flex-direction: column;
+    }
+
+    .eventImage {
+        width: 100%;
+        height: 70vh;
+    }
+
+    .arrowsImage svg {
+        width: 7vw;
+    }
+
+    .arrowsImage {
+
+        width: calc(100% - var(--marginMobile)* 2);
+        padding: var(--marginMobile);
+    }
+
+    .eventInfo {
+        width: calc(100% - var(--marginMobile)* 2);
+        padding: var(--marginMobile);
+    }
+
+    .dayEvent {
+        margin-top: calc(var(--marginMobile)* 2);
+    }
+
+    .detailsEvent {
+        width: 100%
+    }
+
+    .detailsEventMain {
+        margin-top: calc(var(--marginMobile)* 2);
+        gap: calc(var(--marginMobile)* 2);
+        flex-direction: column;
+    }
+
+    .textEvent {
+        width: 100%;
+    }
+
+    .textEvent p {
+        margin-bottom: calc(var(--marginMobile) / 2);
+    }
+
 }

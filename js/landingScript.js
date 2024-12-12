@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.structreLandingColumn').forEach(column => {
         column.style.width = `${columnWidth}vw`;
     });
-    document.querySelector('header').style.width = `${columnWidth}vw`;
 
     const structreLandingColumns = document.querySelectorAll(".structreLandingColumn");
 
