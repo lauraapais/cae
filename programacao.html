@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.typekit.net/ggp8xma.css">
+    <link rel="stylesheet" href="css/locomotive-scroll.css">
 </head>
 
 <body>
-    <div class="bodyLanding">
         <header>
             <div class="headerDiv">
                 <div class="simpleLogoHeader">
@@ -48,7 +48,6 @@
                                 stroke-width="1" />
                         </g>
                     </svg>
-
                 </div>
                 <div class="logoHeader">
                     <a href="index.html"></a>
@@ -158,8 +157,8 @@
             <a href="bilheteira.html"><span>bilheteira</span></a>
             <a href="cae.html"><span>cae</span></a>
         </div>
-        <main>
-            <div class="AgendaLanding">
+        <main data-scroll-container>
+            <div class="AgendaLanding" data-scroll-section>
                 <div class="mainTitle">
                     <h1>Programação</h1>
                 </div>
@@ -337,10 +336,7 @@
                 </div>
             </div>
 
-
-
-
-            <footer>
+            <footer data-scroll-section>
                 <hr>
                 <div class="newsletterFooter">
                     <h1 id="subscribeSpan">subscrever newsletter</h1>
@@ -385,13 +381,15 @@
                     </div>
                 </div>
             </footer>
-
     </main>
-    </div>
 
     <script src="js/script.js"></script>
     <script src="js/landingScript.js"></script>
     <script src="js/mobileHeight.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="js/locomotive-scroll-fix.js"></script>
+    <script src="js/locomotive-scroll.min.js"></script>
 
     <script>
         const agendaItems = document.querySelectorAll('.agendaItem');

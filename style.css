@@ -210,7 +210,7 @@ header {
 
 
 /* Index */
-.bodyLanding {
+body{
     display: flex;
 }
 
@@ -569,7 +569,7 @@ footer input[type="text"] {
 
 
 /* Programacao */
-.bodyProgramacao {
+.mainProgramacao {
     background-color: var(--grey);
 }
 

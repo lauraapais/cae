@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    <div class="bodyLanding bodyEventType">
         <header>
             <div class="headerDiv">
                 <div class="simpleLogoHeader">
@@ -158,9 +157,8 @@
             <a href="bilheteira.html"><span>bilheteira</span></a>
             <a href="cae.html"><span>cae</span></a>
         </div>
-        <main>
-
-            <div class="eventContent">
+        <main data-scroll-container class="mainProgramacao">
+            <div class="eventContent" data-scroll-section>
                 <div class="eventImage">
                     <div class="arrowsImage">
                         <svg id="arrowImageEvent_Left" xmlns="http://www.w3.org/2000/svg" width="65.102" height="65.102" viewBox="0 0 65.102 65.102">
@@ -241,7 +239,7 @@
                 </div>
             </div>
 
-            <footer>
+            <footer data-scroll-section>
                 <hr>
                 <div class="newsletterFooter">
                     <h1 id="subscribeSpan">subscrever newsletter</h1>
@@ -288,7 +286,6 @@
             </footer>
 
         </main>
-    </div>
 
     <script src="js/script.js"></script>
     <script src="js/landingScript.js"></script>
