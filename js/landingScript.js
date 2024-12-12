@@ -37,13 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
         svgs.forEach(svg => svg.classList.remove("selected"));
         svgs[index].classList.add("selected");
 
-        // Atualiza os títulos
+        /*// Atualiza os títulos
         titles.forEach((title, i) => {
             title.classList.remove("active");
             if (i === index) {
                 title.classList.add("active");
             }
-        });
+        });*/
 
         // Randomiza a landing
         randomizeColumns();

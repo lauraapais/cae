@@ -151,6 +151,10 @@
         </div>
     </header>
 
+    <div id="loadingScreen">
+        <svg id="final_version" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700"><path id="M" d="M491.65,522.33V226.65h-.91l-126.78,295.68h-28.83l-125.86-295.68h-.91v295.68h-33.87V190.3h52.18l123.11,282.67,123.57-282.67h52.18v332.03h-33.87Z"/><g id="L"><rect x="332.24" y="111.59" width="35.14" height="501.26"/><rect x="349.8" y="582.93" width="181.85" height="29.91"/></g><rect id="T" x="219.06" y="99.88" width="261.51" height="30.08"/></svg>
+        </div>
+
     <div id="menu" class="menu">
         <a href="programacao.html"><span>agenda</span></a>
         <a href="bilheteira.html"><span>bilheteira</span></a>
@@ -361,7 +365,6 @@
 
     <script src="js/script.js"></script>
     <script src="js/landingScript.js"></script>
-    <script src="js/imageCarousel-LandingPage.js"></script>
     <script src="js/mobileHeight.js"></script>
     <script src="js/footer.js"></script>
 
@@ -378,6 +381,25 @@
             });
         });
     </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+     window.addEventListener("load", function () {
+         const loadingScreen = document.getElementById("loadingScreen");
+         if (loadingScreen) {
+             // Aguarda 3 segundos antes de iniciar a transição
+             setTimeout(() => {
+                 loadingScreen.classList.add("hidden");
+                 
+                 // Remove o elemento da DOM após a transição de opacidade
+                 loadingScreen.addEventListener("transitionend", () => {
+                     loadingScreen.remove();
+                 });
+             }, 300); // 3000 milissegundos = 3 segundos
+         }
+     });
+ });
+ </script>
 </body>
 
 </html>
