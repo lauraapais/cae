@@ -108,42 +108,42 @@ main {
     transition: all 0.5s ease;
 }
 
-.simpleLogoHeader:hover #Rectangle_309 {
+.headerDiv:hover #Rectangle_309 {
     x: 5;
     y: 25;
 }
 
-.simpleLogoHeader:hover #Rectangle_310 {
+.headerDiv:hover #Rectangle_310 {
     x: 15;
     y: 25;
 }
 
-.simpleLogoHeader:hover #Rectangle_311 {
+.headerDiv:hover #Rectangle_311 {
     x: 35;
     y: 25;
 }
 
-.simpleLogoHeader:hover #Rectangle_312 {
+.headerDiv:hover #Rectangle_312 {
     x: 55;
     y: 25;
 }
 
-.simpleLogoHeader:hover #Rectangle_313 {
+.headerDiv:hover #Rectangle_313 {
     x: 0;
     y: 0;
 }
 
-.simpleLogoHeader:hover #Rectangle_314 {
+.headerDiv:hover #Rectangle_314 {
     x: 25;
     y: 0;
 }
 
-.simpleLogoHeader:hover #Rectangle_315 {
+.headerDiv:hover #Rectangle_315 {
     x: 30;
     y: 0;
 }
 
-.simpleLogoHeader:hover #Rectangle_316 {
+.headerDiv:hover #Rectangle_316 {
     x: 45;
     y: 0;
 }
@@ -312,8 +312,6 @@ body{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
     pointer-events: none; /* Impede interação com imagens invisíveis */
 }
 
@@ -331,6 +329,7 @@ body{
     bottom: 0;
     
 }
+
 
 .titleLandingContainer {
     /* display: none; Esconde todos os títulos por padrão 
@@ -647,13 +646,11 @@ footer input[type="text"] {
     border-bottom: 2px solid var(--black);
 }
 
-
 #newsletterForm-arrow{
     cursor: pointer;
 }
 
-
-/* Programacao */
+/* Programacao*/
 
 
 @media only screen and (max-width: 1450px) {

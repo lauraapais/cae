@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const structreLandingRows = document.querySelectorAll('.structreLandingRow');
     const colorMapping = ["#E3D24D", "#38ABBA", "#664728"]; // Colors for each image
 
-    let columnNumber = window.innerWidth <= 700 ? 7 : 20; // Adjust columns for mobile
+    let columnNumber = window.innerWidth <= 768 ? 7 : 20; // Adjust columns for mobile
     const structreLandingColumns = [];
 
     const createColumns = () => {
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const totalColumns = structreLandingColumns.length;
         const minFilled = Math.ceil(totalColumns * 0.2);
         const maxFilled = Math.floor(totalColumns * 0.4);
-        const isMobile = window.innerWidth <= 700; // Check if it's mobile
+        const isMobile = window.innerWidth <= 768; // Check if it's mobile
         let filledCount = 0;
 
         structreLandingColumns.forEach(column => {
@@ -77,8 +77,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const randomThreshold = isMobile ? 0.5 : 0.8; // Adjust threshold for mobile
             if (filledCount < maxFilled && Math.random() > randomThreshold) {
                 const prevExpanded = index > 0 && structreLandingColumns[index - 1].classList.contains('expand');
+                const nextExpanded = index < totalColumns - 1 && structreLandingColumns[index + 1].classList.contains('expand');
 
-                if (!prevExpanded) { // Ensure no consecutive columns
+                if (prevExpanded) consecutiveCount++;
+                else consecutiveCount = 1;
+
+                if (consecutiveCount <= 3) {
                     column.classList.remove('collapse');
                     column.classList.add('expand');
                     filledCount++;
@@ -95,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const secondRowColumns = structreLandingRows[1]?.children;
-        if (secondRowColumns && !isMobile) {
+        if (secondRowColumns) {
             secondRowColumns[0]?.classList.replace('expand', 'collapse');
             secondRowColumns[1]?.classList.replace('collapse', 'expand');
             secondRowColumns[2]?.classList.replace('collapse', 'expand');
@@ -126,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Handle window resize
     window.addEventListener('resize', () => {
-        const newColumnNumber = window.innerWidth <= 700 ? 7 : 20;
+        const newColumnNumber = window.innerWidth <= 768 ? 7 : 20;
         if (newColumnNumber !== columnNumber) {
             columnNumber = newColumnNumber;
             createColumns();
