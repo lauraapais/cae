@@ -595,12 +595,11 @@ footer input[type="text"] {
     outline: none;
     background: transparent;
     padding: 0;
-    border-bottom: 2px solid var(--grey);
+    border-bottom: 2px solid var(--grey)!important;
 }
 
 footer input[type="text"]::placeholder {
     color: grey;
-    border-bottom: 2px solid var(--grey);
 }
 
 .newsletterFooter {
@@ -655,9 +654,6 @@ footer input[type="text"] {
 
 
 /* Programacao */
-.mainProgramacao {
-    background-color: var(--grey);
-}
 
 
 @media only screen and (max-width: 1450px) {
@@ -759,7 +755,6 @@ footer input[type="text"] {
     .newsletterFooter {
         width: calc(100vw - var(--marginMobile)* 2 - var(--headerSizeMobile));
         padding: var(--marginMobile);
-        margin-top: calc(var(--marginMobile) * 2);
     }
 
     footer span {
@@ -773,6 +768,10 @@ footer input[type="text"] {
 
     .newsletterForm svg{
         width: 7vw;
+    }
+
+    footer input[type="text"]{
+        font-size: calc(40px + 0.5vw);
     }
     
 
