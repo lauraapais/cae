@@ -468,11 +468,16 @@ body{
 .filter div {
     display: flex;
     gap: var(--marginDesktop);
+    align-items: center;
 }
 
 .filter p:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+#searchIcon{
+    width: 2vw;
 }
 
 
@@ -813,13 +818,18 @@ footer input[type="text"] {
         margin-bottom: calc(var(--marginMobile) / 2);
     }
 
+    #searchIcon{
+        width: 4.5vw;
+    }
+    
+
     .mainTitle {
         padding: var(--marginMobile);
         margin-top: calc(var(--marginMobile));
     }
 
     .agendaItem img {
-        height: 45vh;
+        height: 40vh;
     }
 
     /* Evento-Tipo */
