@@ -104,6 +104,52 @@ main {
 
 
 /* Header */
+.simpleLogoHeader svg rect {
+    transition: all 0.5s ease;
+}
+
+.simpleLogoHeader:hover #Rectangle_309 {
+    x: 5;
+    y: 25;
+}
+
+.simpleLogoHeader:hover #Rectangle_310 {
+    x: 15;
+    y: 25;
+}
+
+.simpleLogoHeader:hover #Rectangle_311 {
+    x: 35;
+    y: 25;
+}
+
+.simpleLogoHeader:hover #Rectangle_312 {
+    x: 55;
+    y: 25;
+}
+
+.simpleLogoHeader:hover #Rectangle_313 {
+    x: 0;
+    y: 0;
+}
+
+.simpleLogoHeader:hover #Rectangle_314 {
+    x: 25;
+    y: 0;
+}
+
+.simpleLogoHeader:hover #Rectangle_315 {
+    x: 30;
+    y: 0;
+}
+
+.simpleLogoHeader:hover #Rectangle_316 {
+    x: 45;
+    y: 0;
+}
+
+/* Define the rest of the hover states accordingly */
+
 header {
     height: 100vh;
 }
