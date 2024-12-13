@@ -13,25 +13,19 @@
         <header>
             <div class="headerDiv">
                 <div class="simpleLogoHeader">
-                    <svg id="Group_171" data-name="Group 171" xmlns="http://www.w3.org/2000/svg" width="60" height="60"
-                        viewBox="0 0 60 60" onclick="window.location.href='index.html'">
-                        <rect id="Rectangle_309" data-name="Rectangle 309" width="5" height="35"
-                            transform="translate(0 25)" />
-                        <rect id="Rectangle_310" data-name="Rectangle 310" width="15" height="35"
-                            transform="translate(10 25)" />
-                        <rect id="Rectangle_311" data-name="Rectangle 311" width="10" height="35"
-                            transform="translate(30 25)" />
-                        <rect id="Rectangle_312" data-name="Rectangle 312" width="5" height="35"
-                            transform="translate(45 25)" />
-                        <rect id="Rectangle_313" data-name="Rectangle 313" width="10" height="25"
-                            transform="translate(5)" />
-                        <rect id="Rectangle_314" data-name="Rectangle 314" width="5" height="25"
-                            transform="translate(20)" />
-                        <rect id="Rectangle_315" data-name="Rectangle 315" width="5" height="25"
-                            transform="translate(34.999)" />
-                        <rect id="Rectangle_316" data-name="Rectangle 316" width="10" height="25"
-                            transform="translate(50)" />
-                    </svg>
+                    <a href="index.html">
+                        <svg id="logoSimples" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+                            <!-- Rectangles -->
+                            <rect id="Rectangle_309" width="5" height="35" x="0" y="25" />
+                            <rect id="Rectangle_310" width="15" height="35" x="10" y="25" />
+                            <rect id="Rectangle_311" width="10" height="35" x="30" y="25" />
+                            <rect id="Rectangle_312" width="5" height="35" x="45" y="25" />
+                            <rect id="Rectangle_313" width="10" height="25" x="5" y="0" />
+                            <rect id="Rectangle_314" width="5" height="25" x="20" y="0" />
+                            <rect id="Rectangle_315" width="5" height="25" x="35" y="0" />
+                            <rect id="Rectangle_316" width="10" height="25" x="50" y="0" />
+                        </svg>
+                    </a>
                 </div>
                 <div class="menuButton">
                     <p id="openMenu">Menu</p>
@@ -154,16 +148,17 @@
         </header>
 
         <div id="menu" class="menu">
-            <a href="programacao.html"><span class="menuSelected">programação</span></a>
+            <a href="programacao.html"><span>programação</span></a>
             <a href="bilheteira.html"><span>bilheteira</span></a>
             <a href="cae.html"><span>cae</span></a>
         </div>
-        <main>
+        <main data-scroll-container>
       
 
 
 
-            <footer>
+        <main data-scroll-section>
+            <footer >
                 <hr>
                 <div class="newsletterFooter">
                     <h1 id="subscribeSpan">subscrever newsletter</h1>
@@ -215,10 +210,13 @@
     <script src="js/landingScript.js"></script>
     <script src="js/mobileHeight.js"></script>
     <script src="js/footer.js"></script>
+    <script src="js/menu.js"></script>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="js/locomotive-scroll-fix.js"></script>
     <script src="js/locomotive-scroll.min.js"></script>
+    
 
     <script>
         const agendaItems = document.querySelectorAll('.agendaItem');

@@ -149,15 +149,14 @@ main {
 }
 
 /* Define the rest of the hover states accordingly */
-
 header {
-    height: 100vh;
+    height: calc(var(--vh, 1h)* 100);
 }
 
 .headerDiv {
     width: var(--headerSizeDesktop);
     position: fixed;
-    height: 100%;
+    height: calc(var(--vh, 1h)* 100);
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -200,8 +199,9 @@ header {
 }
 
 #menu {
-   opacity: 0;
-   visibility: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Impede a interação quando escondido */
     position: fixed;
     gap: calc(var(--marginDesktop) * 2);
     padding: var(--marginDesktop);
@@ -214,13 +214,14 @@ header {
     flex-direction: column;
     justify-content: center;
     top: 0;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.5s ease, visibility 0.5s ease, pointer-events 0.5s ease;
     border-right: 1px solid var(--black);
 }
 
 #menu.show {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto; /* Permite a interação quando visível */
 }
 
 
@@ -299,7 +300,7 @@ body{
     left: 0;
     z-index: -1;
     width: calc(100vw - var(--columnSizeDesktop));
-    height: 100vh;
+    height: calc(var(--vh, 1h)* 100);
     overflow: hidden;
 }
 
@@ -485,13 +486,13 @@ body{
 
 .eventContent {
     width: calc(100vw - var(--columnSizeDesktop));
-    min-height: 100vh;
+    min-height: calc(var(--vh, 1h)* 100);
     display: flex;
 }
 
 .eventImage {
     width: 50%;
-    height: 100vh;
+    height: calc(var(--vh, 1h)* 100);
 }
 
 .eventImage img {
@@ -600,6 +601,7 @@ footer input[type="text"]::placeholder {
 .newsletterFooter {
     width: calc(100vw - var(--marginDesktop)* 2 - var(--headerSizeDesktop));
     padding: var(--marginDesktop);
+    margin-top: 0;
 }
 
 
@@ -787,12 +789,12 @@ footer input[type="text"] {
     }
 
     .agendaItemDetails {
-        margin-top: calc(var(--marginMobile));
-        gap: calc(var(--marginMobile) / 2);
+        margin-top: calc(var(--marginMobile) / 2);
+        gap: calc(var(--marginMobile) / 4);
     }
 
     .moreinfoEvent {
-        padding: calc(var(--marginMobile) / 2) 0;
+        padding: 0;
     }
 
 
