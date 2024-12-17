@@ -665,6 +665,33 @@ footer input[type="text"] {
 
 /* Programacao*/
 
+  /*About*/
+
+  .aboutCaeTop{
+    padding: calc(var(--marginDesktop));
+    display: flex;
+        flex-direction: column;
+        gap: var(--marginDesktop);
+        margin-bottom: var(--marginDesktop);
+  }
+
+  .imageAbout{ 
+width: calc(100vw - var(--headerSizeDesktop));
+  }
+
+  .imageAbout img{
+    width:100%;
+    height: 100%;
+  }
+
+  .blockAbout p, .blockAbout h1{
+    padding: calc(var(--marginDesktop));
+  }
+
+  .blockAbout p{
+    width:40%;
+  }
+
 
 @media only screen and (max-width: 1450px) {
     .agendaItemMain {
@@ -969,4 +996,35 @@ footer input[type="text"] {
         margin-bottom: calc(var(--marginMobile) / 2);
     }
 
+    /*Abou*/
+    .aboutCaeTop h2 {
+        font-size: calc(25px + 0.5vw)!important;
+        line-height: calc(25px + 0.5vw)!important;
+    }
+    .blockAbout p{
+        width:calc(100% - var(--marginMobile) * 2);
+      }
+
+      .aboutCaeTop{
+        padding: calc(var(--marginMobile));
+        display: flex;
+            flex-direction: column;
+            gap: var(--marginMobile);
+            margin-bottom: var(--marginMobile);
+      }
+    
+      .imageAbout{ 
+    width: calc(100vw - var(--headerSizeMobile));
+      }
+    
+      .imageAbout img{
+        width:100%;
+        height: 100%;
+      }
+    
+      .blockAbout p, .blockAbout h1{
+        padding: calc(var(--marginMobile));
+      }
+    
+    
 }
