@@ -795,22 +795,19 @@ footer input[type="text"] {
 
     /*Index*/
     .structreLanding {
-        height: 100vh;
+        height: calc(var(--vh, 1h) * 100);
     }
 
     #structreLandingRow1 {
-        height: calc(33.3vh) !important;
-        
+        height: calc(var(--vh, 1h) * 33.3);
     }
     
     #structreLandingRow2 {
-        height: calc(46.67vh) !important;
-
+        height: calc(var(--vh, 1h) * 46.67);
     }
 
     .structreLandingRow {
         display: flex;
-        height: calc(var(--vh, 1h)* 100 / 2);
     }
 
     .imageLandingNext svg {
@@ -819,11 +816,11 @@ footer input[type="text"] {
 
     .imageBackgroundLanding {
         width: calc(100vw - var(--headerSizeMobile));
-        height: 80vh;
+        height: calc(var(--vh, 1h) * 80);
     }
 
     .imageBackgroundLanding img {
-        height: 80vh;
+        height: calc(var(--vh, 1h) * 80);
     }
 
     .imageLandingNext {
@@ -872,7 +869,7 @@ footer input[type="text"] {
     .titleLandingContainer {
         padding:  var(--marginMobile)   var(--marginMobile)  calc(var(--marginMobile) * 2) ;
         width: calc(50vh - var(--marginMobile)* 2);
-        height: 20vh;
+        height:calc(var(--vh, 1h) * 20);
         width: calc(100vw - var(--marginMobile)* 2 - var(--columnSizeMobile));
         gap: var(--marginMobile);
         overflow:auto;
