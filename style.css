@@ -390,12 +390,13 @@ body{
 .imageLandingNext {
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 50%;
+    transform: translate(50%);
     min-width: 4.7619vw;
     height: 50vh;
     display: flex;
     align-items: flex-end;
-    justify-content: space-evenly;
+    justify-content: center;
     padding-bottom: var(--marginDesktop);
     gap: var(--marginDesktop);
     padding-right: var(--marginDesktop);
@@ -405,10 +406,17 @@ body{
     fill: none;
     stroke: var(--bg-color);
     stroke-width: 1;
-    width: 0.95vw;
-    height: auto;
+    width: auto;
+    height: 0.6vw;
 
 }
+
+.titleLandingSpan {
+    text-decoration: underline;
+    text-decoration-thickness: 5px; /* Define a espessura da linha */
+    text-underline-offset: 5px; 
+}
+
 
 .imageLandingNext .selected {
     fill: var(--bg-color) !important;
@@ -781,7 +789,7 @@ footer input[type="text"] {
     }
 
     .newsletterForm{
-        width: calc(100vw - var(--columnSizeMobile) - var(--marginMobile));
+        width: calc(100vw - var(--columnSizeMobile) - var(--marginMobile) * 2);
     }
 
     #newsletterForm-email{
