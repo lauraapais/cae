@@ -277,7 +277,7 @@ body{
 
 .structreLandingColumn {
     background-color: var(--colorColumnLanding);
-    height: calc(var(--vh, 1h) * 50);
+    height: calc(var(--vh, 1h) * 100);
     transform-origin: left;
     transform: scaleX(0);
     transition: transform 1s ease-in-out, opacity 1s ease-in-out;
@@ -787,6 +787,7 @@ footer input[type="text"] {
         font-style: normal;
     }
 
+<<<<<<< HEAD
     .newsletterForm{
         width: calc(100vw - var(--columnSizeMobile) - var(--marginMobile) * 2);
     }
@@ -794,6 +795,8 @@ footer input[type="text"] {
     #newsletterForm-email{
         width:100%;
     }
+=======
+>>>>>>> parent of e5c76ee (++)
     .newsletterForm svg{
         width: 7vw;
     }
@@ -804,20 +807,8 @@ footer input[type="text"] {
     
 
     /*Index*/
-    .structreLandingColumn{
-        height: calc(var(--vh, 1h)* 100 / 2);
-    }
-    .structreLandingRow {
-        display: flex;
-        height: calc(var(--vh, 1h)* 100 / 2);
-    }
-
     .imageLandingNext svg {
         width: 3vw;
-    }
-
-    .imageBackgroundLanding {
-        width: calc(100vw - var(--headerSizeMobile));
     }
 
     .imageLandingNext {
