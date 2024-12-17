@@ -577,7 +577,7 @@ body{
     opacity: 0;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: calc(var(--vh, 1h) * 100);
     object-fit: cover;
 }
 
@@ -913,11 +913,6 @@ footer input[type="text"] {
     }
 
     /* Evento-Tipo */
-    .imageCarousel {
-        width: 100%;
-        object-fit: cover;
-        height: 70vh;
-    }
     .eventContent {
         width: calc(100vw - var(--columnSizeMobile));
         flex-direction: column;
