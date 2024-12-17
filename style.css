@@ -266,6 +266,10 @@ body{
     display: flex;
 }
 
+.has-scroll-smooth [data-scroll-container]{
+    height:  calc(var(--vh, 1h) * 100)!important;
+}
+
 .structreLanding {
     width: 100%;
     position: relative;
