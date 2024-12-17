@@ -62,47 +62,76 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const randomizeColumns = () => {
         const totalColumns = structreLandingColumns.length;
-        const minFilled = Math.ceil(totalColumns * 0.2);
-        const maxFilled = Math.floor(totalColumns * 0.4);
-        const isMobile = window.innerWidth <= 700; // Check if it's mobile
+        const isMobile = window.innerWidth <= 700; // Verifica se é mobile
+        
+        // Ajustar limites de preenchimento
+        const minFilled = isMobile ? Math.ceil(totalColumns * 0.3) : Math.ceil(totalColumns * 0.4);
+        const maxFilled = isMobile ? Math.floor(totalColumns * 0.6) : Math.floor(totalColumns * 0.7);
+        const maxConsecutive = isMobile ? 2 : 3; // Limite de colunas consecutivas
         let filledCount = 0;
-
+    
+        // Resetar todas as colunas
         structreLandingColumns.forEach(column => {
             column.classList.remove('expand', 'collapse');
             column.classList.add('collapse');
         });
-
-        let consecutiveCount = 0;
-        structreLandingColumns.forEach((column, index) => {
-            const randomThreshold = isMobile ? 0.5 : 0.8; // Adjust threshold for mobile
-            if (filledCount < maxFilled && Math.random() > randomThreshold) {
-                const prevExpanded = index > 0 && structreLandingColumns[index - 1].classList.contains('expand');
-
-                if (!prevExpanded) { // Ensure no consecutive columns
-                    column.classList.remove('collapse');
-                    column.classList.add('expand');
+    
+        const canExpand = (index) => {
+            let leftCount = 0, rightCount = 0;
+    
+            // Contar consecutivas à esquerda
+            for (let i = index - 1; i >= 0; i--) {
+                if (structreLandingColumns[i].classList.contains('expand')) leftCount++;
+                else break;
+            }
+    
+            // Contar consecutivas à direita
+            for (let i = index + 1; i < totalColumns; i++) {
+                if (structreLandingColumns[i].classList.contains('expand')) rightCount++;
+                else break;
+            }
+    
+            // Verifica se adicionar esta coluna ultrapassa o limite
+            return (leftCount + 1 + rightCount) <= maxConsecutive;
+        };
+    
+        // Expandir colunas obedecendo os limites
+        for (let i = 0; i < totalColumns; i++) {
+            if (filledCount >= maxFilled) break;
+    
+            if (Math.random() > (isMobile ? 0.3 : 0.6) && canExpand(i)) {
+                structreLandingColumns[i].classList.remove('collapse');
+                structreLandingColumns[i].classList.add('expand');
+                filledCount++;
+            }
+        }
+    
+        // Garantir o preenchimento mínimo
+        while (filledCount < minFilled) {
+            for (let i = 0; i < totalColumns; i++) {
+                if (structreLandingColumns[i].classList.contains('collapse') && canExpand(i)) {
+                    structreLandingColumns[i].classList.remove('collapse');
+                    structreLandingColumns[i].classList.add('expand');
                     filledCount++;
+                    if (filledCount >= minFilled) break;
                 }
             }
-        });
-
-        while (filledCount < minFilled) {
-            const remainingColumns = structreLandingColumns.filter(col => col.classList.contains('collapse'));
-            const randomColumn = remainingColumns[Math.floor(Math.random() * remainingColumns.length)];
-            randomColumn.classList.remove('collapse');
-            randomColumn.classList.add('expand');
-            filledCount++;
         }
-
-        const secondRowColumns = structreLandingRows[1]?.children;
+    
+        // Ajuste específico para a segunda linha no desktop
+        const secondRowColumns = structreLandingRows[1]?.children; // Segunda row
         if (secondRowColumns && !isMobile) {
-            secondRowColumns[0]?.classList.replace('expand', 'collapse');
-            secondRowColumns[1]?.classList.replace('collapse', 'expand');
-            secondRowColumns[2]?.classList.replace('collapse', 'expand');
-            secondRowColumns[3]?.classList.replace('collapse', 'expand');
-            secondRowColumns[4]?.classList.replace('expand', 'collapse');
+            // Garantir o preenchimento correto
+            secondRowColumns[0]?.classList.replace('expand', 'collapse'); // Primeira coluna - collapse
+            secondRowColumns[1]?.classList.replace('collapse', 'expand'); // Segunda coluna - expand
+            secondRowColumns[2]?.classList.replace('collapse', 'expand'); // Terceira coluna - expand
+            secondRowColumns[3]?.classList.replace('collapse', 'expand'); // Quarta coluna - expand
+            secondRowColumns[4]?.classList.replace('expand', 'collapse'); // Quinta coluna - collapse
         }
     };
+    
+    
+    
 
     const startAutoSlide = () => {
         autoSlideInterval = setInterval(() => {
