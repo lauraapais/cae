@@ -1003,9 +1003,14 @@ width: calc(100vw - var(--headerSizeDesktop));
     }
 
     /*Abou*/
+
+    .aboutCaeTop     span {
+        font-size: calc(40px + 0.5vw);
+        line-height: calc(40px + 0.5vw);
+    }
     .aboutCaeTop h2 {
-        font-size: calc(25px + 0.5vw)!important;
-        line-height: calc(25px + 0.5vw)!important;
+        font-size: calc(22px + 0.390625vw);
+        line-height: calc(25px + 0.390625vw);
     }
     .blockAbout p{
         width:calc(100% - var(--marginMobile) * 2);
