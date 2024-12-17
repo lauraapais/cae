@@ -346,7 +346,7 @@ body{
 }
 
 
-.titleLandingContainer{
+/*.titleLandingContainer{
     padding: var(--marginDesktop);
     width: 100%;
     height: 100%;
@@ -356,6 +356,19 @@ body{
     gap: var(--marginDesktop);
     width: calc(50vh - var(--marginDesktop) * 2);
     height: calc((var(--columnSizeDesktop)) * 3 - var(--marginDesktop) * 2);
+}*/
+
+.titleLandingContainer { 
+    padding: var(--marginDesktop);
+    width: calc(50vh - var(--marginDesktop) * 2);
+    height: calc((var(--columnSizeDesktop)) * 3 - var(--marginDesktop) * 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--marginDesktop);
+
+    overflow: hidden;
+    position: relative; 
 }
 
 /*
@@ -388,7 +401,7 @@ body{
     fill: none;
     stroke: var(--bg-color);
     stroke-width: 1;
-    width: 0.65vw;
+    width: 0.95vw;
     height: auto;
 
 }
@@ -773,6 +786,28 @@ footer input[type="text"] {
     
 
     /*Index*/
+    .imageLandingNext svg {
+        width: 3vw;
+    }
+
+    .imageLandingNext {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        min-width: var(--columnSizeMobile);
+
+        align-items: flex-end;
+        justify-content: space-evenly;
+        padding-bottom: var(--marginMobile);
+        gap: var(--marginMobile);
+        padding-right: var(--marginMobile);
+    }
+
+    span {
+        font-size: calc(60px + 0.5vw);
+        line-height: calc(60px + 0.5vw);
+    }
+
     .buttonMoreAgenda {
         padding: calc(var(--marginMobile) * 1.5);
         margin-top: var(--marginMobile);
@@ -796,6 +831,24 @@ footer input[type="text"] {
 
     .moreinfoEvent {
         padding: 0;
+    }
+
+    .titleLandingContainer {
+        padding: var(--marginMobile);
+        width: calc(50vh - var(--marginMobile)* 2);
+        height: auto;
+        width: calc(100vw - var(--marginMobile)* 2 - var(--columnSizeMobile));
+        gap: var(--marginMobile);
+        overflow: none;
+    }
+
+    .titleLanding {
+        color: var(--bg-color);
+        transform: rotate(0deg) translate(0%, 0%);
+        position: absolute;
+        transform-origin: bottom left;
+        left: 0;
+        bottom: calc(var(--marginMobile) * 2);
     }
 
 
