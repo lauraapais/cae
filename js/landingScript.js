@@ -131,8 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     
     
-    
-
     const startAutoSlide = () => {
         autoSlideInterval = setInterval(() => {
             currentIndex = (currentIndex + 1) % images.length;
@@ -143,15 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const stopAutoSlide = () => {
         clearInterval(autoSlideInterval);
     };
-
-    svgs.forEach((svg, index) => {
-        svg.addEventListener("click", () => {
-            stopAutoSlide();
-            currentIndex = index;
-            showImage(currentIndex);
-            startAutoSlide();
-        });
-    });
 
     // Handle window resize
     window.addEventListener('resize', () => {
@@ -172,6 +161,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     startAutoSlide();
 });
-
-
-

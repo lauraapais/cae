@@ -410,10 +410,7 @@ justify-content: flex-start !important;
     fill: var(--bg-color) !important;
 }
 
-.imageLandingNext svg:hover {
-    fill: var(--bg-color) !important;
-    opacity: 50%;
-}
+
 
 
 /* Index Agenda */
