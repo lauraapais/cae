@@ -267,11 +267,11 @@ header {
 /* Index */
 
 #structreLandingRow1 {
-    height: calc(var(--vh, 1h) * 41.67) !important;
+    height: calc(var(--vh, 1h) * 41.67);
 }
 
 #structreLandingRow2 {
-    height: calc(var(--vh, 1h) * 58.33) !important;
+    height: calc(var(--vh, 1h) * 58.33);
 }
 
 body {
@@ -794,16 +794,17 @@ footer input[type="text"] {
 
 
     /*Index*/
-    .structreLanding{
-height: calc(var(--vh, 1h)* 100);
+    .structreLanding {
+        height: 100vh;
     }
+
     #structreLandingRow1 {
-        height: calc(var(--vh, 1h) * 33.3) !important;
+        height: calc(33.3vh) !important;
         
     }
     
     #structreLandingRow2 {
-        height: calc(var(--vh, 1h) * 46.67) !important;
+        height: calc(46.67vh) !important;
 
     }
 
@@ -818,7 +819,11 @@ height: calc(var(--vh, 1h)* 100);
 
     .imageBackgroundLanding {
         width: calc(100vw - var(--headerSizeMobile));
-        height: calc(var(--vh, 1h)* 80);
+        height: 80vh;
+    }
+
+    .imageBackgroundLanding img {
+        height: 80vh;
     }
 
     .imageLandingNext {
@@ -867,10 +872,10 @@ height: calc(var(--vh, 1h)* 100);
     .titleLandingContainer {
         padding:  var(--marginMobile)   var(--marginMobile)  calc(var(--marginMobile) * 2) ;
         width: calc(50vh - var(--marginMobile)* 2);
-        height: calc(var(--vh, 1h)* 20);
+        height: 20vh;
         width: calc(100vw - var(--marginMobile)* 2 - var(--columnSizeMobile));
         gap: var(--marginMobile);
-        overflow: none;
+        overflow:auto;
     }
 
     .titleLanding {
