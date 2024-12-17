@@ -835,8 +835,8 @@ height: calc(var(--vh, 1h)* 100);
     }
 
     span {
-        font-size: calc(60px + 0.5vw);
-        line-height: calc(60px + 0.5vw);
+        font-size: calc(50px + 0.5vw);
+        line-height: calc(50px + 0.5vw);
     }
 
     .buttonMoreAgenda {
