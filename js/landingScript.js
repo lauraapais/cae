@@ -143,6 +143,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     startAutoSlide();
 });
-
-
-
