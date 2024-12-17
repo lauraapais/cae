@@ -817,13 +817,13 @@ footer input[type="text"] {
         position: absolute;
         bottom: 0;
         right: 0;
+        width: calc(100vw - var(--headerSizeMobile) - var(--marginMobile)* 2);
         min-width: var(--columnSizeMobile);
-
         align-items: flex-end;
-        justify-content: space-evenly;
+        justify-content: center;
         padding-bottom: var(--marginMobile);
-        gap: var(--marginMobile);
-        padding-right: var(--marginMobile);
+        gap: calc(var(--marginMobile)* 2);
+        padding: var(--marginMobile);
     }
 
     span {
