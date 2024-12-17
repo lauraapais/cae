@@ -395,9 +395,12 @@ body{
     stroke: var(--bg-color);
     stroke-width: 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: auto;
     height: 0.6vw;
 =======
+=======
+>>>>>>> parent of 88f6e44 (++)
     width: 0.65vw;
     height: auto;
 >>>>>>> parent of 88f6e44 (++)
@@ -803,6 +806,7 @@ footer input[type="text"] {
 
     /*Index*/
 <<<<<<< HEAD
+<<<<<<< HEAD
     .imageLandingNext svg {
         width: 3vw;
     }
@@ -825,6 +829,8 @@ footer input[type="text"] {
         line-height: calc(60px + 0.5vw);
     }
 
+=======
+>>>>>>> parent of 88f6e44 (++)
 =======
 >>>>>>> parent of 88f6e44 (++)
     .buttonMoreAgenda {
