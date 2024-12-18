@@ -28,7 +28,6 @@
 }
 
 ::-moz-selection {
-    /* Code for Firefox */
     color: var(--bg-color);
     background: var(--black);
 }
@@ -74,7 +73,7 @@ h2 {
 }
 
 h3 {
-    font-size:calc(20px + 0.390625vw);
+    font-size:calc(23px + 0.390625vw);
     line-height:calc(25px + 0.390625vw);
     font-family: "neue-haas-grotesk-text", sans-serif;
     font-weight: 400;
@@ -729,6 +728,10 @@ footer input[type="text"] {
     margin-bottom: calc(var(--marginDesktop) * 2);
 }
 
+.aboutCaeTop h3{
+    width: 60%;
+}
+
 .imageAbout {
     width: calc(100vw - var(--headerSizeDesktop));
 }
@@ -850,6 +853,14 @@ footer input[type="text"] {
     h2 {
         font-size: calc(30px + 0.5vw);
         line-height: calc(30px + 0.5vw);
+        font-family: "neue-haas-grotesk-text", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    h3 {
+        font-size:calc(19px + 0.390625vw);
+        line-height:calc(20px + 0.390625vw);
         font-family: "neue-haas-grotesk-text", sans-serif;
         font-weight: 400;
         font-style: normal;
@@ -1175,10 +1186,11 @@ footer input[type="text"] {
         line-height: calc(40px + 0.5vw);
     }
 
-    .aboutCaeTop h2 {
-        font-size: calc(22px + 0.390625vw);
-        line-height: calc(25px + 0.390625vw);
+    .aboutCaeTop h3{
+        width: 100%;
     }
+
+   
 
     .blockAbout p {
         width: calc(100% - var(--marginMobile) * 2);
