@@ -405,7 +405,6 @@ body {
     stroke-width: 1;
     width: auto;
     height: 0.6vw;
-
 }
 
 .titleLandingSpan {
@@ -430,6 +429,7 @@ body {
     height: 1.5vw;
     padding-bottom: calc(var(--marginDesktop) / 2);
     stroke: var(--bg-color) !important;
+    stroke-width: 1;
 }
 
 
@@ -445,6 +445,7 @@ body {
     height: 1.5vw;
     padding-bottom: calc(var(--marginDesktop) / 2);
     stroke: var(--bg-color) !important;
+    stroke-width: 1;
 }
 
 
@@ -979,8 +980,7 @@ footer input[type="text"] {
         bottom: calc(var(--vh, 1h) * 20);
         right: 0;
         transform: translate(-50%);
-        min-width: auto !important;
-        ;
+        min-width: auto !important;;
         height: max-content !important;
         display: flex;
         align-items: flex-end;
@@ -1061,7 +1061,7 @@ footer input[type="text"] {
     }
     
     .imageLandingNextArrow_mobile svg{
-        height: 4vw;
+        height: 6vw;
         stroke-width: 3;
         padding-bottom: 0;
         stroke: var(--bg-color) !important;
