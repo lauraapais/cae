@@ -2,15 +2,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll(".imageBackgroundLanding img");
     const svgs = document.querySelectorAll(".imageLandingNextDesktop .numberPhotos");
     const svgsMobile = document.querySelectorAll(".imageLandingNextMobile .numberPhotos");
-
     const titles = document.querySelectorAll(".titleLandingContainer");
     const structreLandingRows = document.querySelectorAll('.structreLandingRow');
     const colorMapping = ["#E3D24D", "#38ABBA", "#664728"];
-
     const imageLandingNext = document.getElementById("imageLandingNext");
+    const imageLandingNextMobile = document.getElementById("imageLandingNext_Mobile");
 
     let columnNumber = window.innerWidth <= 700 ? 7 : 20; 
     const structreLandingColumns = [];
+    let currentIndex = 0;
+    let autoSlideInterval;
 
     const createColumns = () => {
         structreLandingRows.forEach(row => row.innerHTML = "");
@@ -30,9 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
             column.style.width = `${columnWidth}vw`;
         });
     };
-
-    let currentIndex = 0;
-    let autoSlideInterval;
 
     const showImage = (index) => {
         images.forEach((img, i) => {
@@ -140,6 +138,20 @@ document.addEventListener("DOMContentLoaded", function () {
         clearInterval(autoSlideInterval);
     };
 
+    const changeImageOnClick = (direction) => {
+        stopAutoSlide(); // Para o auto slide ao clicar
+        if (direction === "next") {
+            currentIndex = (currentIndex + 1) % images.length;
+        } else if (direction === "prev") {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+        }
+        showImage(currentIndex);
+        startAutoSlide(); // Reinicia o auto slide
+    };
+
+    imageLandingNext.addEventListener("click", () => changeImageOnClick("next"));
+    imageLandingNextMobile.addEventListener("click", () => changeImageOnClick("next"));
+
     window.addEventListener('resize', () => {
         const newColumnNumber = window.innerWidth <= 700 ? 7 : 20;
         if (newColumnNumber !== columnNumber) {
@@ -157,7 +169,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     startAutoSlide();
 });
-
-
-
-
