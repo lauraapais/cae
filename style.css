@@ -73,6 +73,14 @@ h2 {
     font-style: normal;
 }
 
+h3 {
+    font-size:calc(20px + 0.390625vw);
+    line-height:calc(25px + 0.390625vw);
+    font-family: "neue-haas-grotesk-text", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 p {
     font-size: calc(11px + 0.390625vw);
     line-height: calc(15px + 0.390625vw);
@@ -687,13 +695,18 @@ footer input[type="text"] {
     height: 100%;
 }
 
-.blockAbout p,
+
 .blockAbout h1 {
     padding: calc(var(--marginDesktop));
 }
 
-.blockAbout p {
-    width: 40%;
+.blockAboutContainer p{
+    width: 50%;
+    margin-bottom: calc(var(--marginDesktop) / 2);
+}
+
+.blockAboutContainer{
+    padding: calc(var(--marginDesktop));
 }
 
 
@@ -706,24 +719,70 @@ footer input[type="text"] {
     margin-bottom: calc(var(--marginDesktop) * 2);
 }
 
+.privacyPolicy .infoPagesParagraph {
+    width: 60% !important;
+}
+
 .infoPagesParagraph {
-    width: 60%;
+    width: 50%;
 }
 
 .infoPagesParagraph p {
     margin-bottom: calc(var(--marginDesktop) / 2);
 }
 
+.infoPagesFlex{
+    display: flex;
+    gap: calc(var(--marginDesktop) * 2);
+}
+
+
+/*Bilheteira*/
+.bilheteriaItemMain {
+    width: calc(100vw -(var(--columnSizeDesktop)) - var(--marginDesktop)* 2) !important;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: calc(var(--marginDesktop));
+}
+
+.bilheteriaItemMain .agendaItem img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    background-color: var(--grey);
+}
+
 @media only screen and (max-width: 1450px) {
     .agendaItemMain {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .bilheteriaItemMain {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .infoPagesFlex {
+  
+        flex-direction: column;
+    }
+    .infoPagesParagraph {
+        width: calc(100vw - var(--headerSizeMobile) - var(--marginMobile) * 2);
+    }
+
 }
 
 @media only screen and (max-width: 1000px) {
-    .agendaItemMain {
+    .bilheteriaItemMain {
         grid-template-columns: repeat(2, 1fr);
     }
+    .infoPagesFlex {
+  
+        flex-direction: column;
+    }
+    .infoPagesParagraph {
+        width: calc(100vw - var(--headerSizeMobile) - var(--marginMobile) * 2);
+    }
+
 }
 
 @media only screen and (max-width: 700px) {
@@ -1081,4 +1140,18 @@ footer input[type="text"] {
         margin-bottom: calc(var(--marginMobile) / 2);
     }
 
+    /*Bilheteira*/
+    .bilheteriaItemMain {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .infoPagesFlex {
+  
+        flex-direction: column;
+    }
+
+    .bilheteriaItemMain .agendaItem img {
+        width: 100%;
+        height: 40vh;
+    }
 }
