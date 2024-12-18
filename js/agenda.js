@@ -28,7 +28,6 @@ function addEmptySlots() {
       let emptySlots = 0;
       if (columns === 4) {
         emptySlots = 1;
-        //emptySlots = Math.floor(Math.random() * 2) + 1; 
       } else if (columns === 3) {
         emptySlots = 1;
       } else if (columns <= 2) {
@@ -37,7 +36,15 @@ function addEmptySlots() {
 
       let addedSlots = 0;
       while (addedSlots < emptySlots) {
-        const insertPosition = Math.floor(Math.random() * itemsPerRow);
+        let insertPosition;
+
+        if (i === 0) {
+          // Garantir que o slot vazio não seja o primeiro na primeira linha
+          insertPosition = Math.floor(Math.random() * (itemsPerRow - 1)) + 1; // Posição entre 1 e itemsPerRow - 1
+        } else {
+          insertPosition = Math.floor(Math.random() * itemsPerRow);
+        }
+
         const globalIndex = startIndex + insertPosition;
 
         if (!emptyPositions[insertPosition] && globalIndex < newItems.length) {

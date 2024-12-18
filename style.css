@@ -53,7 +53,7 @@ body {
     font-family: "neue-haas-grotesk-text", sans-serif;
     font-weight: 400;
     font-style: normal;
-    
+
 }
 
 
@@ -192,6 +192,8 @@ header {
     transform-origin: 50% 50%;
     transform: rotate(-90deg) translate(-25%);
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 }
 
 #closeMenu {
@@ -276,8 +278,8 @@ header {
 
 body {
     display: flex;
-        overflow-x: hidden;
-    }
+    overflow-x: hidden;
+}
 
 
 .has-scroll-smooth [data-scroll-container] {
@@ -368,8 +370,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--marginDesktop);
-display: flex;
-justify-content: flex-start !important;
+    display: flex;
+    justify-content: flex-start !important;
     overflow: hidden;
     position: relative;
 }
@@ -414,6 +416,10 @@ justify-content: flex-start !important;
 
 
 /* Index Agenda */
+.moreinfoEvent {
+    text-decoration: underline;
+}
+
 .monthSep {
     display: flex;
     justify-content: space-between;
@@ -662,33 +668,51 @@ footer input[type="text"] {
 
 /* Programacao*/
 
-  /*About*/
+/*About*/
 
-  .aboutCaeTop{
+.aboutCaeTop {
     padding: calc(var(--marginDesktop));
     display: flex;
-        flex-direction: column;
-        gap: var(--marginDesktop);
-        margin-bottom: var(--marginDesktop);
-  }
+    flex-direction: column;
+    gap: var(--marginDesktop);
+    margin-bottom: calc(var(--marginDesktop) * 2);
+}
 
-  .imageAbout{ 
-width: calc(100vw - var(--headerSizeDesktop));
-  }
+.imageAbout {
+    width: calc(100vw - var(--headerSizeDesktop));
+}
 
-  .imageAbout img{
-    width:100%;
+.imageAbout img {
+    width: 100%;
     height: 100%;
-  }
+}
 
-  .blockAbout p, .blockAbout h1{
+.blockAbout p,
+.blockAbout h1 {
     padding: calc(var(--marginDesktop));
-  }
+}
 
-  .blockAbout p{
-    width:40%;
-  }
+.blockAbout p {
+    width: 40%;
+}
 
+
+/*Política de Privacidade*/
+.privacyPolicy {
+    padding: calc(var(--marginDesktop));
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--marginDesktop) * 2);
+    margin-bottom: calc(var(--marginDesktop) * 2);
+}
+
+.infoPagesParagraph {
+    width: 60%;
+}
+
+.infoPagesParagraph p {
+    margin-bottom: calc(var(--marginDesktop) / 2);
+}
 
 @media only screen and (max-width: 1450px) {
     .agendaItemMain {
@@ -757,7 +781,7 @@ width: calc(100vw - var(--headerSizeDesktop));
         gap: calc(var(--marginMobile)* 2);
         padding: var(--marginMobile);
         background-color: var(--grey);
-        width: calc(100vw - var(--headerSizeMobile) * 2);
+        width: calc(100vw - var(--headerSizeMobile));
         height: calc(var(--vh, 1h)* 100 - var(--marginMobile)* 2);
         z-index: 900;
         left: calc(var(--headerSizeMobile));
@@ -825,7 +849,7 @@ width: calc(100vw - var(--headerSizeDesktop));
     #structreLandingRow1 {
         height: calc(var(--vh, 1h) * 33.3);
     }
-    
+
     #structreLandingRow2 {
         height: calc(var(--vh, 1h) * 46.67);
     }
@@ -853,7 +877,8 @@ width: calc(100vw - var(--headerSizeDesktop));
         bottom: calc(var(--vh, 1h) * 20);
         right: 0;
         transform: translate(-50%);
-        min-width: auto !important;;
+        min-width: auto !important;
+        ;
         height: max-content !important;
         display: flex;
         align-items: flex-end;
@@ -870,8 +895,8 @@ width: calc(100vw - var(--headerSizeDesktop));
     }
 
     span {
-        font-size: calc(50px + 0.5vw);
-        line-height: calc(50px + 0.5vw);
+        font-size: calc(45px + 0.5vw);
+        line-height: calc(45px + 0.5vw);
     }
 
     .buttonMoreAgenda {
@@ -900,12 +925,12 @@ width: calc(100vw - var(--headerSizeDesktop));
     }
 
     .titleLandingContainer {
-        padding:  var(--marginMobile)   var(--marginMobile)  calc(var(--marginMobile) * 2) ;
+        padding: var(--marginMobile) var(--marginMobile) calc(var(--marginMobile) * 2);
         width: calc(50vh - var(--marginMobile)* 2);
-        height:calc(var(--vh, 1h) * 20);
+        height: calc(var(--vh, 1h) * 20);
         width: calc(100vw - var(--marginMobile)* 2 - var(--columnSizeMobile));
         gap: var(--marginMobile);
-        overflow:auto;
+        overflow: auto;
     }
 
     .titleLanding {
@@ -970,7 +995,7 @@ width: calc(100vw - var(--headerSizeDesktop));
     }
 
     .arrowsImage {
-
+        height: calc(70vh - var(--marginMobile) * 2);
         width: calc(100% - var(--marginMobile)* 2);
         padding: var(--marginMobile);
     }
@@ -1004,38 +1029,56 @@ width: calc(100vw - var(--headerSizeDesktop));
 
     /*Abou*/
 
-    .aboutCaeTop     span {
+    .aboutCaeTop span {
         font-size: calc(40px + 0.5vw);
         line-height: calc(40px + 0.5vw);
     }
+
     .aboutCaeTop h2 {
         font-size: calc(22px + 0.390625vw);
         line-height: calc(25px + 0.390625vw);
     }
-    .blockAbout p{
-        width:calc(100% - var(--marginMobile) * 2);
-      }
 
-      .aboutCaeTop{
+    .blockAbout p {
+        width: calc(100% - var(--marginMobile) * 2);
+    }
+
+    .aboutCaeTop {
         padding: calc(var(--marginMobile));
         display: flex;
-            flex-direction: column;
-            gap: var(--marginMobile);
-            margin-bottom: var(--marginMobile);
-      }
-    
-      .imageAbout{ 
-    width: calc(100vw - var(--headerSizeMobile));
-      }
-    
-      .imageAbout img{
-        width:100%;
+        flex-direction: column;
+        gap: var(--marginMobile);
+        margin-bottom: var(--marginMobile);
+    }
+
+    .imageAbout {
+        width: calc(100vw - var(--headerSizeMobile));
+    }
+
+    .imageAbout img {
+        width: 100%;
         height: 100%;
-      }
-    
-      .blockAbout p, .blockAbout h1{
+    }
+
+    .blockAbout p,
+    .blockAbout h1 {
         padding: calc(var(--marginMobile));
-      }
-    
-    
+    }
+
+
+    /*Política de Privacidade*/
+    .privacyPolicy {
+        padding: calc(var(--marginMobile));
+        gap: calc(var(--marginMobile) * 2);
+        margin-bottom: calc(var(--marginMobile) * 2);
+    }
+
+    .infoPagesParagraph {
+        width: calc(100vw - var(--headerSizeMobile) - var(--marginMobile) * 2);
+    }
+
+    .infoPagesParagraph p {
+        margin-bottom: calc(var(--marginMobile) / 2);
+    }
+
 }
