@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.typekit.net/ggp8xma.css">
+    
     <link rel="stylesheet" href="css/locomotive-scroll.css">
 
 </head>
 
-<body>
-    <header>
+<body data-scroll-container>
+    <header data-scroll-section>
         <div class="headerDiv">
             <div class="simpleLogoHeader">
                 <a href="index.html">
@@ -147,12 +148,12 @@
         </div>
     </header>
 
-    <div id="menu" class="menu">
+    <div id="menu" class="menu" data-scroll-section>
         <a href="programacao.html"><span>agenda</span></a>
         <a href="bilheteira.html"><span>bilheteira</span></a>
         <a href="cae.html"><span class="menuSelected">cae</span></a>
     </div>
-    <main>
+    <main data-scroll-section>
         <div class="aboutCae">
             <div class="aboutCaeTop">
                 <span>centro de artes e espetáculos<br>vale de cambra </span>
@@ -319,6 +320,8 @@
     <script src="js/footer.js"></script>
     <script src="js/menu.js"></script>
 
+    <script src="js/locomotive-scroll-fix.js"></script>
+    <script src="js/locomotive-scroll.min.js"></script>
 
     <script>
         const agendaItems = document.querySelectorAll('.agendaItem');
