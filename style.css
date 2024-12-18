@@ -101,6 +101,10 @@ a:hover {
     text-decoration: none;
 }
 
+#openMenu:hover{
+    text-decoration: underline;
+}
+
 span {
     font-size: calc(70px + 0.5vw);
     line-height: calc(70px + 0.5vw);
@@ -234,7 +238,6 @@ header {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    /* Permite a interação quando visível */
 }
 
 
@@ -340,13 +343,11 @@ body {
     height: calc(var(--vh, 1h) * 100);
     object-fit: cover;
     pointer-events: none;
-    /* Impede interação com imagens invisíveis */
 }
 
 .imageBackgroundLanding img.active {
     opacity: 1;
     pointer-events: auto;
-    /* Permite interação com a imagem visível */
 }
 
 .titleLanding {
@@ -357,7 +358,6 @@ body {
     left: var(--columnSizeDesktop);
     bottom: 0;
 }
-
 
 .titleLandingContainer {
     transition: opacity 0.5s ease-in-out;
@@ -373,30 +373,31 @@ body {
 
 .titleLandingContainer {
     padding: var(--marginDesktop);
-    width: calc(50vh - var(--marginDesktop) * 2);
+    width:calc(var(--vh, 1h) * 58.33 - var(--marginDesktop) * 2);
     min-height: calc((var(--columnSizeDesktop)) * 3 - var(--marginDesktop) * 2);
     display: flex;
     flex-direction: column;
     gap: var(--marginDesktop);
     display: flex;
-    justify-content: flex-start !important;
+    justify-content: space-between !important;
     overflow: hidden;
     position: relative;
 }
 
+.imageLandingNext{
+    z-index: 100;
+}
 .imageLandingNextDesktop {
     position: absolute;
     bottom: 0;
     right: 50%;
     transform: translate(50%);
     min-width: 4.7619vw;
-    height: 50vh;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     padding-bottom: var(--marginDesktop);
     gap: var(--marginDesktop);
-    padding-right: var(--marginDesktop);
 }
 
 .imageLandingNextMobile{
@@ -414,7 +415,6 @@ body {
 .titleLandingSpan {
     text-decoration: underline;
     text-decoration-thickness: 5px;
-    /* Define a espessura da linha */
     text-underline-offset: 5px;
 }
 
@@ -435,8 +435,6 @@ body {
     stroke: var(--bg-color) !important;
     stroke-width: 1;
 }
-
-
 
 .imageLandingNextArrow_mobile{
     display: none;
@@ -487,18 +485,18 @@ body {
 }
 
 .hoverImage {
-    position: absolute; /* Posiciona o elemento sobre a imagem */
+    position: absolute; 
     top: 0;
     left: 0;
-    width: 0; /* Começa com largura 0 */
-    height: 60vh; /* Sempre cobre a altura total do contêiner */
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para visualização */
-    transition: width 0.5s ease; /* Transição suave na largura */
-    z-index: 1; /* Garante que o hoverImage fique sobre a imagem */
+    width: 0; 
+    height: 60vh; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    transition: width 0.5s ease; 
+    z-index: 1;
 }
 
 .agendaItem:hover .hoverImage {
-    width: 100%; /* Ao passar o mouse, o hoverImage preenche a largura total */
+    width: 100%;
 }
 
 .agendaItem img {
@@ -553,9 +551,7 @@ body {
 
 
 
-
 /* Evento-Tipo */
-
 .bodyEventType main {
     background-color: var(--grey);
 }
@@ -632,7 +628,6 @@ body {
     opacity: 1;
 }
 
-
 .arrowsImage {
     position: absolute;
     z-index: 2;
@@ -647,6 +642,7 @@ body {
 .arrowsImage svg {
     width: 2.5vw;
 }
+
 
 
 /*Footer*/
@@ -678,7 +674,6 @@ footer input[type="text"]::placeholder {
     padding: var(--marginDesktop);
     margin-top: 0;
 }
-
 
 .footerMain {
     display: flex;
