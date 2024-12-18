@@ -374,7 +374,7 @@ body {
 .titleLandingContainer {
     padding: var(--marginDesktop);
     width: calc(50vh - var(--marginDesktop) * 2);
-    height: calc((var(--columnSizeDesktop)) * 3 - var(--marginDesktop) * 2);
+    min-height: calc((var(--columnSizeDesktop)) * 3 - var(--marginDesktop) * 2);
     display: flex;
     flex-direction: column;
     gap: var(--marginDesktop);
@@ -384,7 +384,7 @@ body {
     position: relative;
 }
 
-.imageLandingNext {
+.imageLandingNextDesktop {
     position: absolute;
     bottom: 0;
     right: 50%;
@@ -397,6 +397,10 @@ body {
     padding-bottom: var(--marginDesktop);
     gap: var(--marginDesktop);
     padding-right: var(--marginDesktop);
+}
+
+.imageLandingNextMobile{
+    display: none;
 }
 
 .imageLandingNext svg {
@@ -946,7 +950,7 @@ footer input[type="text"] {
 
     /*Index*/
     .structreLanding {
-        height: calc(var(--vh, 1h) * 100);
+        min-height: calc(var(--vh, 1h) * 100);
     }
 
     #structreLandingRow1 {
@@ -974,21 +978,38 @@ footer input[type="text"] {
         height: calc(var(--vh, 1h) * 80);
     }
 
+.imageLandingNextDesktop{
+    display: none;
+    position: absolute;
+    bottom: calc(var(--vh, 1h) * 20);
+    right: 0;
+    transform: translate(-50%);
+    min-width: auto !important;;
+    height: max-content !important;
+    
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: var(--marginMobile);
+    gap: var(--marginMobile);
+    padding-right: 0;
+}
 
-    .imageLandingNext {
-        position: absolute;
-        bottom: calc(var(--vh, 1h) * 20);
-        right: 0;
-        transform: translate(-50%);
-        min-width: auto !important;;
-        height: max-content !important;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        padding-bottom: var(--marginMobile);
-        gap: var(--marginMobile);
-        padding-right: 0;
-    }
+.imageLandingNextMobile{
+    display: flex;
+    position: absolute;
+    right: var(--marginMobile);
+    top: var(--marginMobile);
+    gap: var(--marginMobile);
+
+    min-width: auto !important;;
+    height: max-content !important;
+    
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: var(--marginMobile);
+    gap: var(--marginMobile);
+    padding-right: 0;
+}
 
     .titleLandingSpan {
         text-decoration: underline;
@@ -1029,7 +1050,7 @@ footer input[type="text"] {
     .titleLandingContainer {
         padding: var(--marginMobile) var(--marginMobile) calc(var(--marginMobile) * 2);
         width: calc(50vh - var(--marginMobile)* 2);
-        height: calc(var(--vh, 1h) * 20);
+        min-height: calc(var(--vh, 1h) * 20);
         width: calc(100vw - var(--marginMobile)* 2 - var(--columnSizeMobile));
         gap: var(--marginMobile);
         overflow: auto;
