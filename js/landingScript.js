@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const structreLandingRows = document.querySelectorAll('.structreLandingRow');
     const colorMapping = ["#E3D24D", "#38ABBA", "#664728"]; // Colors for each image
 
+    const imageLandingNext = document.getElementById("imageLandingNext");
+
     let columnNumber = window.innerWidth <= 700 ? 7 : 20; // Adjust columns for mobile
     const structreLandingColumns = [];
 

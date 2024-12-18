@@ -420,6 +420,32 @@ body {
     fill: var(--bg-color) !important;
 }
 
+.imageLandingNextArrow{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.imageLandingNextArrow svg{
+    height: 1.5vw;
+    padding-bottom: calc(var(--marginDesktop) / 2);
+    stroke: var(--bg-color) !important;
+}
+
+
+
+.imageLandingNextArrow_mobile{
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.imageLandingNextArrow_mobile svg{
+    height: 1.5vw;
+    padding-bottom: calc(var(--marginDesktop) / 2);
+    stroke: var(--bg-color) !important;
+}
 
 
 
@@ -451,6 +477,23 @@ body {
     width: 100%;
     margin-bottom: var(--marginDesktop);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.hoverImage {
+    position: absolute; /* Posiciona o elemento sobre a imagem */
+    top: 0;
+    left: 0;
+    width: 0; /* Começa com largura 0 */
+    height: 60vh; /* Sempre cobre a altura total do contêiner */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para visualização */
+    transition: width 0.5s ease; /* Transição suave na largura */
+    z-index: 1; /* Garante que o hoverImage fique sobre a imagem */
+}
+
+.agendaItem:hover .hoverImage {
+    width: 100%; /* Ao passar o mouse, o hoverImage preenche a largura total */
 }
 
 .agendaItem img {
@@ -1002,6 +1045,27 @@ footer input[type="text"] {
         bottom: 0;
     }
 
+    .imageLandingNextArrow {
+        display: none;
+    }
+
+
+    .imageLandingNextArrow_mobile{
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: 50%;
+        transform: translate( 0 , 50%);
+
+        z-index: 1000;
+    }
+    
+    .imageLandingNextArrow_mobile svg{
+        height: 4vw;
+        stroke-width: 3;
+        padding-bottom: 0;
+        stroke: var(--bg-color) !important;
+    }
 
     /*Agenda*/
     .monthSep {
@@ -1031,6 +1095,8 @@ footer input[type="text"] {
     .agendaItem img {
         height: 40vh;
     }
+
+    
 
     /* Evento-Tipo */
     .imageCarousel {
