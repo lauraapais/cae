@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     
+        const firstRowColumns = structreLandingRows[0]?.children; 
         const secondRowColumns = structreLandingRows[1]?.children; 
         if (secondRowColumns && !isMobile) {
             secondRowColumns[0]?.classList.replace('expand', 'collapse'); 
@@ -118,6 +119,13 @@ document.addEventListener("DOMContentLoaded", function () {
             secondRowColumns[2]?.classList.replace('collapse', 'expand'); 
             secondRowColumns[3]?.classList.replace('collapse', 'expand'); 
             secondRowColumns[4]?.classList.replace('expand', 'collapse');
+        }
+
+        if (firstRowColumns && !isMobile) {
+            firstRowColumns[0]?.classList.replace('collapse', 'expand'); 
+            firstRowColumns[1]?.classList.replace('expand', 'collapse');
+            firstRowColumns[2]?.classList.replace('expand', 'collapse'); 
+            
         }
     };
 
@@ -149,3 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     startAutoSlide();
 });
+
+
+
+
