@@ -807,6 +807,15 @@ footer input[type="text"] {
     background-color: var(--grey);
 }
 
+@media only screen and (max-width: 1600px) {
+
+    span {
+        font-size: calc(40px + 1vw);
+        line-height: calc(40px + 1vw);
+    }
+
+}
+
 @media only screen and (max-width: 1450px) {
     .agendaItemMain {
         grid-template-columns: repeat(3, 1fr);
@@ -824,10 +833,6 @@ footer input[type="text"] {
         width: calc(100vw - var(--headerSizeMobile) - var(--marginMobile) * 2);
     }
 
-    span {
-        font-size: calc(40px + 1vw);
-        line-height: calc(40px + 1vw);
-    }
 
 }
 
