@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const imageLandingNext = document.getElementById("imageLandingNext");
     const imageLandingNextMobile = document.getElementById("imageLandingNext_Mobile");
 
-    let columnNumber = window.innerWidth <= 700 ? 7 : 20; 
+    let columnNumber = window.innerWidth <= 700 ? 7 : 20;
     const structreLandingColumns = [];
     let currentIndex = 0;
     let autoSlideInterval;
@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             for (let j = 0; j < columnNumber; j++) {
                 const columnDiv = document.createElement('div');
                 columnDiv.className = 'structreLandingColumn collapse';
+                columnDiv.style.transition = 'none'; // Disable transition initially
                 row.appendChild(columnDiv);
                 structreLandingColumns.push(columnDiv);
             }
@@ -32,72 +33,78 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
+    const enableTransitions = () => {
+        structreLandingColumns.forEach(column => {
+            column.style.transition = ''; // Enable transitions
+        });
+    };
+
     const showImage = (index) => {
         images.forEach((img, i) => {
-            img.style.transition = 'opacity 0.5s ease-in-out'; 
+            img.style.transition = 'opacity 0.5s ease-in-out';
             img.style.opacity = (i === index) ? '1' : '0';
-            img.style.zIndex = (i === index) ? '1' : '0'; 
+            img.style.zIndex = (i === index) ? '1' : '0';
         });
-    
+
         titles.forEach((title, i) => {
             title.style.display = (i === index) ? 'flex' : 'none';
             title.style.justifyContent = (i === index) ? 'space-between' : '';
         });
-    
+
         svgs.forEach(svg => svg.classList.remove("selected"));
         svgs[index].classList.add("selected");
 
         svgsMobile.forEach(svg => svg.classList.remove("selected"));
         svgsMobile[index].classList.add("selected");
-    
+
         const backgroundColor = colorMapping[index % colorMapping.length];
         structreLandingColumns.forEach(column => {
             column.style.backgroundColor = backgroundColor;
         });
-    
+
         randomizeColumns();
     };
 
     const randomizeColumns = () => {
         const totalColumns = structreLandingColumns.length;
-        const isMobile = window.innerWidth <= 700; 
-        
+        const isMobile = window.innerWidth <= 700;
+
         const minFilled = isMobile ? Math.ceil(totalColumns * 0.3) : Math.ceil(totalColumns * 0.4);
         const maxFilled = isMobile ? Math.floor(totalColumns * 0.6) : Math.floor(totalColumns * 0.7);
-        const maxConsecutive = isMobile ? 2 : 3; 
+        const maxConsecutive = isMobile ? 2 : 3;
         let filledCount = 0;
-    
+
         structreLandingColumns.forEach(column => {
             column.classList.remove('expand', 'collapse');
             column.classList.add('collapse');
         });
-    
+
         const canExpand = (index) => {
             let leftCount = 0, rightCount = 0;
-    
+
             for (let i = index - 1; i >= 0; i--) {
                 if (structreLandingColumns[i].classList.contains('expand')) leftCount++;
                 else break;
             }
-    
+
             for (let i = index + 1; i < totalColumns; i++) {
                 if (structreLandingColumns[i].classList.contains('expand')) rightCount++;
                 else break;
             }
-    
+
             return (leftCount + 1 + rightCount) <= maxConsecutive;
         };
-    
+
         for (let i = 0; i < totalColumns; i++) {
             if (filledCount >= maxFilled) break;
-    
+
             if (Math.random() > (isMobile ? 0.3 : 0.6) && canExpand(i)) {
                 structreLandingColumns[i].classList.remove('collapse');
                 structreLandingColumns[i].classList.add('expand');
                 filledCount++;
             }
         }
-    
+
         while (filledCount < minFilled) {
             for (let i = 0; i < totalColumns; i++) {
                 if (structreLandingColumns[i].classList.contains('collapse') && canExpand(i)) {
@@ -108,23 +115,46 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         }
-    
-        const firstRowColumns = structreLandingRows[0]?.children; 
-        const secondRowColumns = structreLandingRows[1]?.children; 
-        if (secondRowColumns && !isMobile) {
-            secondRowColumns[0]?.classList.replace('expand', 'collapse'); 
-            secondRowColumns[1]?.classList.replace('collapse', 'expand');
-            secondRowColumns[2]?.classList.replace('collapse', 'expand'); 
-            secondRowColumns[3]?.classList.replace('collapse', 'expand'); 
-            secondRowColumns[4]?.classList.replace('expand', 'collapse');
+
+        const firstRowColumns = structreLandingRows[0]?.children;
+        if (firstRowColumns && !isMobile) {
+            firstRowColumns[0]?.classList.replace('collapse', 'expand');
+            firstRowColumns[1]?.classList.replace('expand', 'collapse');
+            firstRowColumns[2]?.classList.replace('expand', 'collapse');
         }
 
-        if (firstRowColumns && !isMobile) {
-            firstRowColumns[0]?.classList.replace('collapse', 'expand'); 
-            firstRowColumns[1]?.classList.replace('expand', 'collapse');
-            firstRowColumns[2]?.classList.replace('expand', 'collapse'); 
-            
-        }
+            // Ensure titleLandingContainer fits in the second row
+            const secondRowColumns = structreLandingRows[1]?.children;
+            const titleContainer = titles[currentIndex];
+            const titleWidth = titleContainer.getBoundingClientRect().width;
+            const totalRowWidth = structreLandingRows[0].offsetWidth;
+            const columnWidth = totalRowWidth / columnNumber;
+
+            // Calculate the minimum required columns, but ensure it’s at least 3
+            let columnsNeeded = Math.ceil(titleWidth / columnWidth);
+            columnsNeeded = Math.max(columnsNeeded, 3); // Ensure at least 3 columns are filled
+
+            if (secondRowColumns && !isMobile) {
+                for (let i = 1; i <= columnsNeeded; i++) {
+                    if (i < secondRowColumns.length) {
+                        secondRowColumns[i]?.classList.replace('collapse', 'expand');
+                    }
+                }
+
+                // Unfill the columns immediately adjacent to the titleLandingContainer
+                const nextColumnLeft = 1 - 1; // Column just to the left of the start
+                const nextColumnRight = columnsNeeded + 1; // Column just to the right of the end
+
+                if (nextColumnLeft >= 0) {
+                    secondRowColumns[nextColumnLeft]?.classList.replace('expand', 'collapse');
+                }
+
+                if (nextColumnRight < secondRowColumns.length) {
+                    secondRowColumns[nextColumnRight]?.classList.replace('expand', 'collapse');
+                }
+            }
+
+
     };
 
     const startAutoSlide = () => {
@@ -139,14 +169,14 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const changeImageOnClick = (direction) => {
-        stopAutoSlide(); // Para o auto slide ao clicar
+        stopAutoSlide();
         if (direction === "next") {
             currentIndex = (currentIndex + 1) % images.length;
         } else if (direction === "prev") {
             currentIndex = (currentIndex - 1 + images.length) % images.length;
         }
         showImage(currentIndex);
-        startAutoSlide(); // Reinicia o auto slide
+        startAutoSlide();
     };
 
     imageLandingNext.addEventListener("click", () => changeImageOnClick("next"));
@@ -168,4 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showImage(currentIndex);
 
     startAutoSlide();
+
+    // Enable transitions after initial load
+    setTimeout(enableTransitions, 100);
 });

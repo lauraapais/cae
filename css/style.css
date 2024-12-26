@@ -96,6 +96,7 @@ p {
     text-wrap: pretty;
 }
 
+
 a {
     color: var(--black);
     text-decoration: none;
@@ -382,7 +383,7 @@ body {
 .titleLandingContainer {
     padding: var(--marginDesktop);
     width:calc(var(--vh, 1h) * 58.33 - var(--marginDesktop) * 2);
-    min-height: calc((var(--columnSizeDesktop)) * 3 - var(--marginDesktop) * 2);
+    min-height: calc((var(--columnSizeDesktop)) * 3 - var(--marginDesktop) * 2 - 5px);
     display: flex;
     flex-direction: column;
     gap: var(--marginDesktop);
