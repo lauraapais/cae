@@ -202,3 +202,34 @@ document.addEventListener("DOMContentLoaded", function () {
     // Enable transitions after initial load
     setTimeout(enableTransitions, 100);
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".imageBackgroundLanding img");
+    const svgs = document.querySelectorAll(".imageLandingNextDesktop .numberPhotos");
+    const svgsMobile = document.querySelectorAll(".imageLandingNextMobile .numberPhotos");
+
+    const showImage = (index) => {
+        images.forEach((img, i) => {
+            img.style.transition = 'opacity 0.5s ease-in-out';
+            img.style.opacity = (i === index) ? '1' : '0';
+            img.style.zIndex = (i === index) ? '1' : '0';
+        });
+    };
+
+    // Add event listeners to SVGs
+    svgs.forEach((svg, index) => {
+        svg.addEventListener("click", () => {
+            console.log(`Desktop SVG clicked: ${index}`);
+            showImage(index);
+        });
+    });
+
+    svgsMobile.forEach((svg, index) => {
+        svg.addEventListener("click", () => {
+            console.log(`Mobile SVG clicked: ${index}`);
+            showImage(index);
+        });
+    });
+});
