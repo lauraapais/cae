@@ -455,7 +455,7 @@ body {
     stroke: var(--bg-color);
     stroke-width: 1;
     width: auto;
-    height: 0.6vw;
+    height: 15px;
     transition:  stroke-width 0.3s ease;
 }
 
@@ -481,7 +481,7 @@ body {
 }
 
 .imageLandingNextArrow svg{
-    height: 1.5vw;
+    height: 30px;
     padding-bottom: calc(var(--marginDesktop) / 2);
     stroke: var(--bg-color) !important;
     stroke-width: 1px;
