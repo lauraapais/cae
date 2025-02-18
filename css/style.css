@@ -1273,19 +1273,26 @@ gap: 0 !important;
         transform-origin: bottom left;
     }
 
+    .imageLandingNextArrow {
+        display: none;
+    }
 
 
-    .imageLandingNextArrow{
+    .imageLandingNextArrow_mobile{
+        display: block;
         position: absolute;
         right: 0;
-        bottom: calc(20vh + (80vh * 0.5) );
+        bottom: 50%;
         transform: translate( 0 , 50%);
 
         z-index: 1000;
     }
     
-    .imageLandingNextArrow_mobile {
-       display: none;
+    .imageLandingNextArrow_mobile svg{
+        height: 6vw;
+        stroke-width: 3;
+        padding-bottom: 0;
+        stroke: var(--bg-color) !important;
     }
 
     .agendaItem:hover .hoverImage {
