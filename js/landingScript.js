@@ -51,12 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
             title.style.justifyContent = (i === index) ? 'space-between' : '';
         });
 
-        svgs.forEach(svg => svg.classList.remove("selected"));
-        svgs[index].classList.add("selected");
-
-        svgsMobile.forEach(svg => svg.classList.remove("selected"));
-        svgsMobile[index].classList.add("selected");
-
         const backgroundColor = colorMapping[index % colorMapping.length];
         structreLandingColumns.forEach(column => {
             column.style.backgroundColor = backgroundColor;
@@ -153,8 +147,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     secondRowColumns[nextColumnRight]?.classList.replace('expand', 'collapse');
                 }
             }
-
-
     };
 
     const startAutoSlide = () => {
@@ -201,35 +193,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Enable transitions after initial load
     setTimeout(enableTransitions, 100);
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll(".imageBackgroundLanding img");
-    const svgs = document.querySelectorAll(".imageLandingNextDesktop .numberPhotos");
-    const svgsMobile = document.querySelectorAll(".imageLandingNextMobile .numberPhotos");
-
-    const showImage = (index) => {
-        images.forEach((img, i) => {
-            img.style.transition = 'opacity 0.5s ease-in-out';
-            img.style.opacity = (i === index) ? '1' : '0';
-            img.style.zIndex = (i === index) ? '1' : '0';
-        });
-    };
-
-    // Add event listeners to SVGs
-    svgs.forEach((svg, index) => {
-        svg.addEventListener("click", () => {
-            console.log(`Desktop SVG clicked: ${index}`);
-            showImage(index);
-        });
-    });
-
-    svgsMobile.forEach((svg, index) => {
-        svg.addEventListener("click", () => {
-            console.log(`Mobile SVG clicked: ${index}`);
-            showImage(index);
-        });
-    });
 });
