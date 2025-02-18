@@ -172,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     imageLandingNext.addEventListener("click", () => changeImageOnClick("next"));
+    imageLandingNextMobile.addEventListener("click", () => changeImageOnClick("next"));
 
     window.addEventListener('resize', () => {
         const newColumnNumber = window.innerWidth <= 700 ? 7 : 20;
