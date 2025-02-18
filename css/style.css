@@ -14,6 +14,32 @@
 }
 
 /* Geral */
+/* Customize the width */
+::-webkit-scrollbar {
+    width: 10px;
+    position: absolute; /* Make the scrollbar overlap */
+    z-index: 9999; /* Ensure it is on top */
+}
+
+/* Transparent track */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Grey thumb with round corners */
+::-webkit-scrollbar-thumb {
+    background-color: var(--grey);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #9a9a9a;
+    border-radius: 10px;
+}
+
+
 * {
     padding: 0;
     margin: 0;
@@ -40,7 +66,7 @@
 
 hr {
     border: none;
-    border-top: 0.5px solid var(--black);
+    border-top: 1px solid var(--black);
 }
 
 a {
@@ -54,6 +80,7 @@ body {
     font-style: normal;
 
 }
+
 
 
 h1 {
@@ -96,7 +123,6 @@ p {
     text-wrap: pretty;
 }
 
-
 a {
     color: var(--black);
     text-decoration: none;
@@ -112,6 +138,16 @@ a:hover {
 
 #openMenu:hover{
     text-decoration: underline;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: calc(var(--marginDesktop) * 2);
+    flex-direction: column;
+
 }
 
 span {
@@ -184,6 +220,7 @@ header {
     flex-direction: column;
     background-color: var(--bg-color);
     border-right: 1px solid var(--black);
+    gap:var(--marginDesktop);
 }
 
 .simpleLogoHeader svg {
@@ -231,7 +268,7 @@ header {
     gap: calc(var(--marginDesktop) * 2);
     padding: var(--marginDesktop);
     background-color: var(--grey);
-    width: calc((var(--columnSizeDesktop)) * 4);
+    width: calc((var(--columnSizeDesktop)) * 4.5);
     height: calc(var(--vh, 1h) * 100 - var(--marginDesktop) * 2);
     z-index: 900;
     left: calc(var(--headerSizeDesktop));
@@ -287,7 +324,6 @@ header {
 
 
 /* Index */
-
 #structreLandingRow1 {
     height: calc(var(--vh, 1h) * 41.67);
 }
@@ -313,7 +349,6 @@ body {
 
 .structreLandingColumn {
     background-color: var(--colorColumnLanding);
-    height: 100%;
     transform-origin: left;
     transform: scaleX(0);
     transition: transform 1s ease-in-out, opacity 1s ease-in-out;
@@ -371,6 +406,7 @@ body {
 .titleLandingContainer {
     transition: opacity 0.5s ease-in-out;
     position: absolute;
+    cursor: pointer;
 }
 
 .titleLandingContainer.active {
@@ -419,6 +455,12 @@ body {
     stroke-width: 1;
     width: auto;
     height: 0.6vw;
+    transition:  stroke-width 0.3s ease;
+}
+
+.imageLandingNext svg:hover{
+    stroke-width: 2;
+    transition:  stroke-width 0.3s ease;
 }
 
 .titleLandingSpan {
@@ -426,7 +468,6 @@ body {
     text-decoration-thickness: 5px;
     text-underline-offset: 5px;
 }
-
 
 .imageLandingNext .selected {
     fill: var(--bg-color) !important;
@@ -442,7 +483,14 @@ body {
     height: 1.5vw;
     padding-bottom: calc(var(--marginDesktop) / 2);
     stroke: var(--bg-color) !important;
-    stroke-width: 1;
+    stroke-width: 1px;
+    cursor:pointer;
+    transition:  stroke-width 0.3s ease;
+}
+
+.imageLandingNextArrow svg:hover{
+    stroke-width: 2px;
+    transition:  stroke-width 0.3s ease;
 }
 
 .imageLandingNextArrow_mobile{
@@ -459,6 +507,13 @@ body {
     stroke-width: 1;
 }
 
+::marker {
+    display: none!important;
+}
+
+.numberPhotos{
+    cursor:pointer;
+}
 
 
 /* Index Agenda */
@@ -470,6 +525,10 @@ body {
     display: flex;
     justify-content: space-between;
     padding: var(--marginDesktop);
+}
+
+.monthSep h1{
+    text-transform: lowercase;
 }
 
 .mainTitle {
@@ -485,6 +544,7 @@ body {
     grid-gap: calc(var(--marginDesktop));
 }
 
+
 .agendaItem {
     width: 100%;
     margin-bottom: var(--marginDesktop);
@@ -493,32 +553,54 @@ body {
     overflow: hidden;
 }
 
+
 .hoverImage {
-    position: absolute; 
+    position: absolute;
     top: 0;
     left: 0;
-    width: 0; 
-    height: 60vh; 
-    background-color: rgba(0, 0, 0, 0.5); 
-    transition: width 0.5s ease; 
-    z-index: 1;
+    width: 0;
+    height: 100%;
+    transition: width 0.5s ease;
+    z-index: -1;
 }
 
 .agendaItem:hover .hoverImage {
     width: 100%;
 }
 
-.agendaItem img {
-    width: 100%;
-    height: 60vh;
-    object-fit: cover;
+.agendaItem:hover .imageAgendaItem img {
+    transform: scale(1.05);
 }
 
+.agendaItem:hover  .agendaItemDetails{
+    transition: margin 0.3s ease;
+}
+
+.agendaItem {
+    position: relative;
+    overflow: hidden;
+}
+
+.imageAgendaItem {
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.imageAgendaItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+
 .agendaItemDetails {
-    margin-top: var(--marginDesktop);
+    margin: var(--marginDesktop) 0;
     display: flex;
     flex-direction: column;
     gap: calc(var(--marginDesktop) / 2);
+    transition: margin 0.3s ease;
 }
 
 .buttonMoreAgenda {
@@ -538,8 +620,9 @@ body {
 
 .filter {
     display: flex;
-    justify-content: space-between;
-    padding: var(--marginDesktop);
+        justify-content: space-between;
+        padding: var(--marginDesktop);
+        gap: var(--marginDesktop);
 }
 
 
@@ -550,12 +633,46 @@ body {
 }
 
 .filter p:hover {
-    text-decoration: underline;
     cursor: pointer;
 }
 
 #searchIcon {
     width: 2vw;
+}
+
+#editableText {
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+    outline: none; /* Remove the default focus outline */
+}
+
+#searchInput{
+    font-size: calc(11px + 0.390625vw);
+    line-height: calc(15px + 0.390625vw);
+    font-weight: 400;
+    text-wrap: pretty;
+}
+
+
+button[type=submit] {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+#searchBar input[type=text] {
+    border: none;
+    border-bottom: 1px solid #000; /* Add border-bottom only */
+    background: none;
+    outline: none; /* Remove the outline */
+}
+
+#searchBar input::placeholder {
+    color: #000; /* Customize the placeholder color */
+}
+
+.selected-filter {
+    text-decoration: underline;
 }
 
 
@@ -569,6 +686,10 @@ body {
     width: calc(100vw - var(--columnSizeDesktop));
     min-height: calc(var(--vh, 1h)* 100);
     display: flex;
+}
+
+.eventCategory{
+    text-decoration: none!important;
 }
 
 .eventImage {
@@ -615,9 +736,9 @@ body {
 }
 
 .eventImage {
-    position: relative;
+    position: sticky;
+    top: 0;
 }
-
 .imageCarousel {
     width: 100%;
     object-fit: cover;
@@ -648,11 +769,32 @@ body {
     justify-content: space-between;
 }
 
+
 .arrowsImage svg {
     width: 2.5vw;
 }
 
+#arrowImageEvent_Right, #arrowImageEvent_Left{
+    cursor: pointer;
+    fill: none;
+    stroke: var(--bg-color);
+    mix-blend-mode: exclusion;
+    stroke-width: 1;
+    transition:  stroke-width 0.3s ease;
+}
 
+#arrowImageEvent_Right:hover, #arrowImageEvent_Left:hover {
+    stroke-width: 2!important;
+    transition:  stroke-width 0.3s ease;
+}
+
+.categoryList p:hover{
+    text-decoration: underline;
+}
+
+.selectionMonth p:hover{
+    text-decoration: underline;
+}
 
 /*Footer*/
 footer span {
@@ -808,6 +950,34 @@ footer input[type="text"] {
     background-color: var(--grey);
 }
 
+/*CAE*/
+.textWrap p{
+    white-space: pre-line;
+}
+
+.textWrapP{
+    white-space: pre-line;
+}
+
+.trimestreList{
+    align-items: flex-start!important;
+}
+
+
+.trimester-btn.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.year-group{
+    flex-direction: column;
+    align-items: flex-start !important;
+gap: 0 !important;
+}
+
+
+
+
 @media only screen and (max-width: 1600px) {
 
     span {
@@ -841,6 +1011,11 @@ footer input[type="text"] {
     .bilheteriaItemMain {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .agendaItemMain{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .infoPagesFlex {
   
         flex-direction: column;
@@ -855,6 +1030,24 @@ footer input[type="text"] {
 }
 
 @media only screen and (max-width: 700px) {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Transparent track */
+    ::-webkit-scrollbar-track {
+        display: none;    }
+    
+    /* Grey thumb with round corners */
+    ::-webkit-scrollbar-thumb {
+        display: none;
+    }
+    
+    /* Thumb on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        display: none;
+    }
+    
 
     /* Geral */
     a {
@@ -1089,10 +1282,8 @@ footer input[type="text"] {
         color: var(--bg-color);
         background-color: var(--black);
         transform: rotate(0deg) translate(0%, 0%);
-        position: absolute;
+        position: initial;
         transform-origin: bottom left;
-        left: 0;
-        bottom: 0;
     }
 
     .imageLandingNextArrow {
@@ -1117,6 +1308,16 @@ footer input[type="text"] {
         stroke: var(--bg-color) !important;
     }
 
+    .agendaItem:hover .hoverImage {
+        width: 0%;
+    }
+    
+    .agendaItem:hover .imageAgendaItem img {
+        transform: scale(1);
+    }
+    
+    
+
     /*Agenda*/
     .monthSep {
         padding: var(--marginMobile);
@@ -1129,7 +1330,6 @@ footer input[type="text"] {
 
     .filter div {
         gap: var(--marginMobile);
-        margin-bottom: calc(var(--marginMobile) / 2);
     }
 
     #searchIcon {
@@ -1142,10 +1342,18 @@ footer input[type="text"] {
         margin-top: calc(var(--marginMobile));
     }
 
-    .agendaItem img {
+    .imageAgendaItem{
         height: 40vh;
     }
 
+    #searchInput{
+        font-size: calc(15px + 0.390625vw);
+        line-height: calc(20px + 0.390625vw);
+        font-weight: 400;
+        text-wrap: pretty;
+    }
+
+    
     
 
     /* Evento-Tipo */
