@@ -1273,7 +1273,7 @@ gap: 0 !important;
     .titleLandingContainer {
         padding: var(--marginMobile) var(--marginMobile) calc(var(--marginMobile) * 2);
         width: calc(50vh - var(--marginMobile)* 2);
-        min-height: calc(var(--vh, 1h) * 20);
+        min-height: calc(var(--vh, 1h) * 20 - var(--marginMobile) * 2);
         width: calc(100vw - var(--marginMobile)* 2 - var(--columnSizeMobile));
         gap: var(--marginMobile);
         overflow: auto;
