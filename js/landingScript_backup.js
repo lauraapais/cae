@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll(".imageBackgroundLanding img");
-    const svgs = document.querySelectorAll(".imageLandingNextDesktop .numberPhotos");
-    const svgsMobile = document.querySelectorAll(".imageLandingNextMobile .numberPhotos");
+    const svgs = document.querySelectorAll(".imageLandingNext .numberPhotos");
     const titles = document.querySelectorAll(".titleLandingContainer");
     const structreLandingRows = document.querySelectorAll('.structreLandingRow');
     const colorMapping = ["#E3D24D", "#38ABBA", "#664728"];
     const imageLandingNext = document.getElementById("imageLandingNext");
-    const imageLandingNextMobile = document.getElementById("imageLandingNext_Mobile");
 
     let columnNumber = window.innerWidth <= 700 ? 7 : 20;
     const structreLandingColumns = [];
@@ -163,7 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     imageLandingNext.addEventListener("click", () => changeImageOnClick("next"));
-    imageLandingNextMobile.addEventListener("click", () => changeImageOnClick("next"));
 
     window.addEventListener('resize', () => {
         const newColumnNumber = window.innerWidth <= 700 ? 7 : 20;
