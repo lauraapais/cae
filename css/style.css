@@ -446,9 +446,6 @@ body {
     gap: var(--marginDesktop);
 }
 
-.imageLandingNextMobile{
-    display: none;
-}
 
 .imageLandingNext svg {
     fill: none;
@@ -1278,17 +1275,17 @@ gap: 0 !important;
     }
 
 
-    .imageLandingNextArrow_mobile{
+    .imageLandingNextArrow{
         display: block;
         position: absolute;
         right: 0;
-        bottom: 50%;
+        bottom: calc(((var(--vh, 1h) * 80) * 0.5  + var(--vh, 1h) * 20));
         transform: translate( 0 , 50%);
 
         z-index: 1000;
     }
     
-    .imageLandingNextArrow_mobile svg{
+    .imageLandingNextArrow svg{
         height: 6vw;
         stroke-width: 3;
         padding-bottom: 0;
